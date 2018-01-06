@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:minWidth="300dp"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.common.view.CBTextView
+            style="@style/txt_accent_18"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_add_sign_theme_blue"
+            android:drawablePadding="10dp"
+            android:gravity="center|start"
+            android:text="Add Prescription" />
+
+        <android.support.design.widget.TextInputLayout
+            style="@style/TextAppearence.App.TextInputLayout_"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:hintAnimationEnabled="true"
+            app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout_">
+
+            <com.common.view.CEditTextView
+                android:id="@+id/editDrugName"
+                style="@style/txt_333_16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_bg"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:hint="@string/drug_name"
+                android:inputType="text"
+                android:longClickable="false"
+                android:padding="5dp"
+                android:singleLine="true"
+                android:textCursorDrawable="@null" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            style="@style/TextAppearence.App.TextInputLayout_"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:hintAnimationEnabled="true"
+            app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout_">
+
+            <com.common.view.CEditTextView
+                android:id="@+id/editeChemical"
+                style="@style/txt_333_16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_bg"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:hint="@string/chemical_name"
+                android:inputType="text"
+                android:longClickable="false"
+                android:padding="5dp"
+                android:singleLine="true"
+                android:textCursorDrawable="@null" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            style="@style/TextAppearence.App.TextInputLayout_"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:hintAnimationEnabled="true"
+            app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout_">
+
+            <com.common.view.CEditTextView
+                android:id="@+id/editeSelectDate"
+                style="@style/txt_333_16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_bg"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:hint="@string/select_date"
+                android:inputType="text"
+                android:longClickable="false"
+                android:padding="5dp"
+                android:singleLine="true"
+                android:textCursorDrawable="@null" />
+        </android.support.design.widget.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <com.common.view.CEditTextView
+                android:id="@+id/editDosage"
+                style="@style/txt_333_16"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/squere_edittext"
+                android:hint="Dosage"
+                android:inputType="number"
+                android:padding="10dp"
+                app:et_supportMaxChars="3" />
+
+            <com.common.view.CEditTextView
+                style="@style/txt_333_16"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:background="@drawable/squere_edittext"
+                android:clickable="false"
+                android:focusable="false"
+                android:longClickable="false"
+                android:padding="10dp"
+                android:text="mg"
+                app:et_supportMaxChars="3" />
+            <!--android:drawableRight="@drawable/ic_arrow_down_black"-->
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <com.common.view.CTextView
+                android:id="@+id/tvReminder"
+                style="@style/txt_000_16"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/squere_edittext"
+                android:drawablePadding="5dp"
+                android:drawableRight="@drawable/ic_arrow_down_black"
+                android:padding="10dp"
+                android:text="Twice a Day" />
+
+            <com.common.view.CTextView
+                android:id="@+id/tvOR"
+                style="@style/txt_000_16"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="4"
+                android:gravity="center"
+                android:text="OR" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/cbAsNeeded"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/checkbox_like_unlike" />
+
+            <com.common.view.CTextView
+                style="@style/txt_000_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="As needed" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <com.common.view.CTextView
+                android:id="@+id/tvCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:text="CANCEL" />
+
+            <com.common.view.CTextView
+                android:id="@+id/tvSave"
+                style="@style/txt_accent_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="SAVE" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

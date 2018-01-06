@@ -1,0 +1,894 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <include layout="@layout/topbar" />
+
+            <ImageView
+                android:id="@+id/imgRefresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|end|right"
+                android:contentDescription="@null"
+                android:padding="10dp"
+                android:src="@drawable/ic_refresh_24dp"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primaryDark"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <com.common.view.CTextView
+                android:id="@+id/tvPrev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:drawableStart="@drawable/ic__left_white_24dp"
+                android:focusable="true" />
+
+            <com.common.view.CTextView
+                android:id="@+id/tvTital"
+                style="@style/txt_fff_18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="2 Weeks"
+                android:textAlignment="center" />
+
+            <com.common.view.CTextView
+                android:id="@+id/tvNext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:drawableStart="@drawable/ic_errow_right_white"
+                android:focusable="true" />
+
+        </LinearLayout>
+
+
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/theme_gray_green">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.common.view.CTextView
+                        android:id="@+id/tvLastEntery"
+                        style="@style/txt_theme_blue_16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:hint="Aug 28" />
+
+                    <com.common.view.CTextView
+                        style="@style/txt_333_14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="Last Entry" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/theme_gray_green">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.common.view.CTextView
+                        android:id="@+id/tvMyEntries"
+                        style="@style/txt_theme_blue_16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:hint="10" />
+
+                    <com.common.view.CTextView
+                        style="@style/txt_333_14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="My Entries" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/theme_gray_green">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.common.view.CTextView
+                        android:id="@+id/tvSelfHarm"
+                        style="@style/txt_theme_blue_16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:hint="1" />
+
+                    <com.common.view.CTextView
+                        style="@style/txt_333_14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:text="Self-Harm Entries" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/theme_gray_green">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.common.view.CTextView
+                        android:id="@+id/tvAttended"
+                        style="@style/txt_theme_blue_16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:hint="2" />
+
+                    <com.common.view.CTextView
+                        style="@style/txt_333_14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="Attended Sessions" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <com.common.view.CBTextView
+                    android:id="@+id/tvLifeScale"
+                    style="@style/txt_666_18"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/ic_arrow_up_gray"
+                    android:gravity="center|start"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
+                    android:text="Life Scale Ratings" />
+
+                <!--android:src="@drawable/ic_arrow_down_gray_28dp"-->
+
+                <LinearLayout
+                    android:id="@+id/llLifeScale"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/lineChart"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <android.support.v7.widget.AppCompatCheckBox
+                            android:id="@+id/cbSocialLife"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:button="@drawable/raund_like_unlike"
+                            android:checked="true"
+                            android:paddingLeft="10dp"
+                            android:text="Social Life"
+                            android:textColor="@color/theme_red" />
+
+                        <android.support.v7.widget.AppCompatCheckBox
+                            android:id="@+id/cbFamilyLife"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:button="@drawable/raund_like_unlike_blue"
+                            android:checked="true"
+                            android:paddingLeft="10dp"
+                            android:text="Family Life"
+                            android:textColor="@color/theme_blue" />
+
+                        <android.support.v7.widget.AppCompatCheckBox
+                            android:id="@+id/cbWorkLife"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:button="@drawable/raund_like_unlike_green"
+                            android:checked="true"
+                            android:paddingLeft="10dp"
+                            android:text="Work Life"
+                            android:textColor="@color/theme_green" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1px"
+                    android:background="@color/theme_gray" />
+
+                <com.common.view.CBTextView
+                    android:id="@+id/tvMood"
+                    style="@style/txt_666_18"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/ic_arrow_down_gray_28dp"
+                    android:gravity="center|start"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
+                    android:text="Mood" />
+
+                <LinearLayout
+                    android:id="@+id/llMood"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/lineChartMood"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+                        <!--android:text="Me" />-->
+
+                        <android.support.v7.widget.AppCompatCheckBox
+                            android:id="@+id/cbEveryOne"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:button="@drawable/raund_like_unlike_blue"
+                            android:checked="true"
+                            android:paddingLeft="10dp"
+                            android:text="Everyone Else"
+                            android:textColor="@color/theme_blue" />
+
+                        <android.support.v7.widget.AppCompatCheckBox
+                            android:id="@+id/cbMe"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:button="@drawable/raund_like_unlike_green"
+                            android:checked="true"
+                            android:paddingLeft="10dp"
+                            android:text="Me"
+                            android:textColor="@color/theme_green" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1px"
+                    android:background="@color/theme_gray" />
+
+                <com.common.view.CBTextView
+                    android:id="@+id/tvWeight"
+                    style="@style/txt_666_18"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/ic_arrow_down_gray_28dp"
+                    android:gravity="center|start"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
+                    android:text="Weight" />
+
+                <LinearLayout
+                    android:id="@+id/llWeight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/lineChartWeight"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:layout_marginBottom="10dp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1px"
+                    android:background="@color/theme_gray" />
+
+                <com.common.view.CBTextView
+                    android:id="@+id/tvSymptom"
+                    style="@style/txt_666_18"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/ic_arrow_down_gray_28dp"
+                    android:gravity="center|start"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
+                    android:text="Symptoms" />
+
+                <LinearLayout
+                    android:id="@+id/llSymptom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/lineChartSymptom"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+
+                        <android.support.v7.widget.AppCompatCheckBox
+                            android:id="@+id/cbAppetite"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:button="@drawable/raund_like_unlike"
+                            android:checked="true"
+                            android:paddingLeft="10dp"
+                            android:text="Appetite"
+                            android:textColor="@color/theme_red" />
+
+                        <android.support.v7.widget.AppCompatCheckBox
+                            android:id="@+id/cbInitiative"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:button="@drawable/raund_like_unlike_blue"
+                            android:checked="true"
+                            android:paddingLeft="10dp"
+                            android:text="Initiative"
+                            android:textColor="@color/theme_blue" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <android.support.v7.widget.AppCompatCheckBox
+                            android:id="@+id/cbPassimism"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:button="@drawable/raund_like_unlike_green"
+                            android:checked="true"
+                            android:paddingLeft="10dp"
+                            android:text="Pessimism"
+                            android:textColor="@color/theme_green" />
+
+                        <android.support.v7.widget.AppCompatCheckBox
+                            android:id="@+id/cbJoy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:button="@drawable/raund_like_unlike_orange"
+                            android:checked="true"
+                            android:paddingLeft="10dp"
+                            android:text="Hopelessness"
+                            android:textColor="@color/theme_orange" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1px"
+                    android:background="@color/theme_gray" />
+
+                <com.common.view.CBTextView
+                    android:id="@+id/tvSymptomMood"
+                    style="@style/txt_666_18"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/ic_arrow_down_gray_28dp"
+                    android:gravity="center|start"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
+                    android:text="Symptoms" />
+
+                <LinearLayout
+                    android:id="@+id/llSymptomMood"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/lineChartSymptomMood"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <android.support.v7.widget.AppCompatCheckBox
+                            android:id="@+id/cbAnxiety"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:button="@drawable/raund_like_unlike"
+                            android:checked="true"
+                            android:paddingLeft="10dp"
+                            android:text="Anxiety"
+                            android:textColor="@color/theme_red" />
+
+                        <android.support.v7.widget.AppCompatCheckBox
+                            android:id="@+id/cbSleep"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:button="@drawable/raund_like_unlike_blue"
+                            android:checked="true"
+                            android:paddingLeft="10dp"
+                            android:text="Sleep"
+                            android:textColor="@color/theme_blue" />
+
+                        <android.support.v7.widget.AppCompatCheckBox
+                            android:id="@+id/cbMood"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:button="@drawable/raund_like_unlike_red_color"
+                            android:checked="true"
+                            android:paddingLeft="10dp"
+                            android:text="Mood"
+                            android:textColor="@color/theme_red_color" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <android.support.v7.widget.AppCompatCheckBox
+                            android:id="@+id/cbEnergy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:button="@drawable/raund_like_unlike_green"
+                            android:checked="true"
+                            android:paddingLeft="10dp"
+                            android:text="Energy"
+                            android:textColor="@color/theme_green" />
+
+                        <android.support.v7.widget.AppCompatCheckBox
+                            android:id="@+id/cbConcentration"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:button="@drawable/raund_like_unlike_orange"
+                            android:checked="true"
+                            android:paddingLeft="10dp"
+                            android:text="Concentration"
+                            android:textColor="@color/theme_orange" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1px"
+                    android:background="@color/theme_gray" />
+
+                <com.common.view.CBTextView
+                    android:id="@+id/tvSideEffects"
+                    style="@style/txt_666_18"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/ic_arrow_down_gray_28dp"
+                    android:gravity="center|start"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
+                    android:text="Side Effects" />
+
+                <LinearLayout
+                    android:id="@+id/llSideEffects"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <com.github.mikephil.charting.charts.BarChart
+                        android:id="@+id/barChartSideEffects"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+
+                        android:orientation="horizontal">
+
+                        <android.support.v7.widget.AppCompatCheckBox
+                            android:id="@+id/cbuicidalThoughts"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:button="@drawable/raund_like_unlike"
+                            android:checked="true"
+                            android:paddingLeft="10dp"
+                            android:text="Suicidal Thoughts"
+                            android:textColor="@color/theme_red" />
+
+                        <android.support.v7.widget.AppCompatCheckBox
+                            android:id="@+id/cbHeadache"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:button="@drawable/raund_like_unlike_blue"
+                            android:checked="true"
+                            android:paddingLeft="10dp"
+                            android:text="Headache"
+                            android:textColor="@color/theme_blue" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <android.support.v7.widget.AppCompatCheckBox
+                            android:id="@+id/cbNightmares"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:button="@drawable/raund_like_unlike_green"
+                            android:checked="true"
+                            android:paddingLeft="10dp"
+                            android:text="Nightmares"
+                            android:textColor="@color/theme_green" />
+
+                        <android.support.v7.widget.AppCompatCheckBox
+                            android:id="@+id/cbPanicAttacks"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:button="@drawable/raund_like_unlike_orange"
+                            android:checked="true"
+                            android:paddingLeft="10dp"
+                            android:text="PanicAttacks"
+                            android:textColor="@color/theme_orange" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@color/theme_gray_green">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <com.common.view.CTextView
+                                    style="@style/txt_333_14"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:gravity="center"
+                                    android:text="Nausea" />
+
+                                <com.common.view.CTextView
+                                    android:id="@+id/tvNausea"
+                                    style="@style/txt_fff_16"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginBottom="10dp"
+                                    android:layout_marginTop="15dp"
+                                    android:gravity="center"
+                                    android:hint="Loading..." />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@color/theme_gray_green">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <com.common.view.CTextView
+                                    style="@style/txt_333_14"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:gravity="center"
+                                    android:text="Restlessness" />
+
+                                <com.common.view.CTextView
+                                    android:id="@+id/tvRestlessness"
+                                    style="@style/txt_fff_16"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginBottom="10dp"
+                                    android:layout_marginTop="15dp"
+                                    android:gravity="center"
+                                    android:hint="Loading..." />
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@color/theme_gray_green">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <com.common.view.CTextView
+                                    style="@style/txt_333_14"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:gravity="center"
+                                    android:text="Dry Mouth" />
+
+                                <com.common.view.CTextView
+                                    android:id="@+id/tvDryMouth"
+                                    style="@style/txt_fff_16"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginBottom="10dp"
+                                    android:layout_marginTop="15dp"
+                                    android:gravity="center"
+                                    android:hint="Loading..." />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@color/theme_gray_green">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+
+                                <com.common.view.CTextView
+                                    style="@style/txt_333_14"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:gravity="center"
+                                    android:text="Panic Attack" />
+
+                                <com.common.view.CTextView
+                                    android:id="@+id/tvPanicAttack"
+                                    style="@style/txt_fff_16"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="10dp"
+                                    android:layout_marginTop="15dp"
+                                    android:gravity="center"
+                                    android:hint="Loding..." />
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+    </LinearLayout>
+
+</LinearLayout>

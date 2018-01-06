@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="10dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.common.view.CTextView
+                    android:id="@+id/tvDrug"
+                    style="@style/txt_000_16"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Lexapro" />
+
+                <com.common.view.CTextView
+                    android:id="@+id/tvConsistency"
+                    style="@style/txt_accent_12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Consistency:30%" />
+
+            </LinearLayout>
+
+            <com.common.view.CTextView
+                android:id="@+id/tvDosage"
+                style="@style/txt_000_16"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="30"
+                android:textAlignment="center" />
+
+            <com.common.view.CTextView
+                android:id="@+id/tvSelect"
+                style="@style/txt_000_16"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/squere_edittext"
+                android:drawablePadding="10dp"
+                android:drawableRight="@drawable/ic_arrow_down_black"
+                android:padding="10dp"
+                android:text="Select" />
+
+            <com.common.view.CTextView
+                android:id="@+id/tvPopup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:drawableStart="@drawable/ic_popum_manu"
+                android:focusable="true" />
+
+        </TableRow>
+
+
+    </TableLayout>
+
+</FrameLayout>

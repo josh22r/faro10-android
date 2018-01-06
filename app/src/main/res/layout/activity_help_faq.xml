@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <include layout="@layout/topbar" />
+
+            <ImageView
+                android:id="@+id/imgRefresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|end|right"
+                android:contentDescription="@null"
+                android:padding="10dp"
+                android:src="@drawable/ic_refresh_24dp"
+                android:visibility="gone" />
+        </FrameLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/theme_red"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/theme_red"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <com.common.view.CTextView
+                android:id="@+id/tvBackErrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:drawableStart="@drawable/ic__left_white_24dp"
+                android:focusable="true" />
+
+            <com.common.view.CBTextView
+                style="@style/txt_fff_18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="FAQ"
+                android:textAlignment="center" />
+
+            <com.common.view.CTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_help_white"
+                android:visibility="invisible" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.common.view.CBTextView
+                    style="@style/txt_red_theme_18"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="In Case of Emergency" />
+
+                <com.common.view.CTextView
+                    style="@style/txt_000_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="If you have a plan to hurt yourself or others, call 911 or go to your nearest emergency room." />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="@color/theme_gray" />
+
+
+            <com.common.view.CTextView
+                android:id="@+id/tvTrackStatus"
+                style="@style/txt_red_theme_18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableRight="@drawable/ic_arrow_down_gray_28dp"
+                android:gravity="center|start"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:text="If I track my status, who can see it? " />
+
+            <LinearLayout
+                android:id="@+id/llTrackStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:visibility="gone">
+
+                <com.common.view.CTextView
+                    android:id="@+id/tvMood"
+                    style="@style/txt_333_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="The status you track within Faro10 is only available to you unless you choose to share that data with a Clinician. To do that, a Clinician has to add you to their list of patients, and then you must approve that request. This is the only way that anyone can see the status that you track." />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="@color/theme_gray" />
+
+            <com.common.view.CTextView
+                android:id="@+id/tvEntered"
+                style="@style/txt_red_theme_18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableRight="@drawable/ic_arrow_down_gray_28dp"
+                android:gravity="center|start"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:text="Where can I see what I’ve entered?" />
+
+            <LinearLayout
+                android:id="@+id/llEntered"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:visibility="gone">
+
+                <com.common.view.CTextView
+                    style="@style/txt_333_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="You can view your charts and journal in both the web application and the mobile app.
+Within the mobile app, press the chart icon on the top right of the screen.
+When logged into the web application using a browser, the Dashboard will display all of your symptom measurements and journal entries.
+" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="@color/theme_gray" />
+
+            <com.common.view.CTextView
+                android:id="@+id/tvObsever"
+                style="@style/txt_red_theme_18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableRight="@drawable/ic_arrow_down_gray_28dp"
+                android:gravity="center|start"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:text="What is an Observer?" />
+
+            <LinearLayout
+                android:id="@+id/llObsever"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:visibility="gone">
+
+                <com.common.view.CTextView
+                    style="@style/txt_333_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="An observer is a member who is making “observations” on another member. These observations become part of that member's chart, and are available to their clinicians.  Observations made can only be seen by the person who made the observation, and the Clinician for subject of the observation. " />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="@color/theme_gray" />
+
+            <com.common.view.CTextView
+                android:id="@+id/tvGuardian"
+                style="@style/txt_red_theme_18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableRight="@drawable/ic_arrow_down_gray_28dp"
+                android:gravity="center|start"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:text="What is the difference between a “Guardian” observer and “Standard”?" />
+
+
+            <LinearLayout
+                android:id="@+id/llGuardian"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:visibility="gone">
+
+                <com.common.view.CTextView
+                    style="@style/txt_333_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="A Guardian has the ability to see medication information and the Care Team for the person being observed.  These Observers are typically family and loved ones directly involved in treatment.  Standard Observers can be classmates, co-workers, friends who want to contribute but don’t need to help track medications and appointments." />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="@color/theme_gray" />
+
+            <com.common.view.CTextView
+                android:id="@+id/tvBecomeObsever"
+                style="@style/txt_red_theme_18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableRight="@drawable/ic_arrow_down_gray_28dp"
+                android:gravity="center|start"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:text="Why become an Observer?" />
+
+
+            <LinearLayout
+                android:id="@+id/llBecomeObsever"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:visibility="gone">
+
+                <com.common.view.CTextView
+                    style="@style/txt_333_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Observer feedback is extremely useful to clinicians when treating patients. They have limited visibility into the effectiveness of treatment, and your feedback can greatly assist them!" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="@color/theme_gray" />
+
+
+            <com.common.view.CTextView
+                android:id="@+id/tvClinician"
+                style="@style/txt_red_theme_18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableRight="@drawable/ic_arrow_down_gray_28dp"
+                android:gravity="center|start"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:text="How are my observations used by a Clinician?" />
+
+
+            <LinearLayout
+                android:id="@+id/llClinician"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:visibility="gone">
+
+                <com.common.view.CTextView
+                    style="@style/txt_333_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" •    Between-session visibility \n
+•	Insight into medication effectiveness \n
+•	Insight into triggers and other activity that can help provide a holistic patient view \n
+•	Provide additional perspective and information during patient sessions that a patient may not provide \n
+•	Recognize behavior that could be crucial to proper diagnosis and treatment
+" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="@color/theme_gray" />
+
+            <com.common.view.CTextView
+                android:id="@+id/tvobserving"
+                style="@style/txt_red_theme_18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableRight="@drawable/ic_arrow_down_gray_28dp"
+                android:gravity="center|start"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:text="Can the people I am observing see what I enter?" />
+
+
+            <LinearLayout
+                android:id="@+id/llobserving"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:visibility="gone">
+
+                <com.common.view.CTextView
+                    style="@style/txt_333_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="The short answer is no.
+Only a clinician that has been approved by an observee can view your observations.
+" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="@color/theme_gray" />
+
+            <com.common.view.CTextView
+                android:id="@+id/tvReport"
+                style="@style/txt_red_theme_18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableRight="@drawable/ic_arrow_down_gray_28dp"
+                android:gravity="center|start"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:text="As an Observer, what types of things should I report?" />
+
+
+            <LinearLayout
+                android:id="@+id/llReport"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:visibility="gone">
+
+                <com.common.view.CTextView
+                    style="@style/txt_333_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Observations regarding an observee's mood, behavior, social activity, or other behavior is all very critical information for diagnosis and treatment.
+Understanding changes in these areas is critical information for clinicians when measuring the success/progress of treatment.
+" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="@color/theme_gray" />
+
+            <com.common.view.CTextView
+                android:id="@+id/tvObservations"
+                style="@style/txt_red_theme_18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableRight="@drawable/ic_arrow_down_gray_28dp"
+                android:gravity="center|start"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:text="How often should I make observations?" />
+
+
+            <LinearLayout
+                android:id="@+id/llObservations"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:visibility="gone">
+
+                <com.common.view.CTextView
+                    style="@style/txt_333_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="It is helpful to collect both the positive and negative feedback regarding a person's behavior, so we recommend scheduling at least a daily reminder to make observations. " />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="@color/theme_gray" />
+
+            <com.common.view.CTextView
+                android:id="@+id/tvObservee"
+                style="@style/txt_red_theme_18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableRight="@drawable/ic_arrow_down_gray_28dp"
+                android:gravity="center|start"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:text="How do I add an observee, so that I can make observations on them?" />
+
+
+            <LinearLayout
+                android:id="@+id/llObservee"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:visibility="gone">
+
+                <com.common.view.CTextView
+                    style="@style/txt_333_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="•	You cannot add an observee, they must add you \n
+•	When a Faro10 user adds you as an “observer” within their My Team page, then you will have access to make observations on them.
+" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="@color/theme_gray" />
+
+            <com.common.view.CTextView
+                style="@style/txt_333_14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="If you have any further questions, please email us at josh@faro10.com" />
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

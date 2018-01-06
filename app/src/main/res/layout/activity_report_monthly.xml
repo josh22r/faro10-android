@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_light__"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <!--<android.support.design.widget.CollapsingToolbarLayout-->
+        <!--android:id="@+id/collapsing_toolbar"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:fitsSystemWindows="true"-->
+        <!--app:contentScrim="@android:color/transparent"-->
+        <!--app:expandedTitleMarginStart="48dp"-->
+        <!--app:layout_scrollFlags="scroll|exitUntilCollapsed">-->
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <include layout="@layout/topbar" />
+
+            <!--<ImageView-->
+            <!--android:id="@+id/imgRefresh"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center_vertical|end|right"-->
+            <!--android:contentDescription="@null"-->
+            <!--android:padding="10dp"-->
+            <!--android:src="@drawable/ic_refresh_24dp" />-->
+        </FrameLayout>
+
+        <!--</android.support.design.widget.CollapsingToolbarLayout>-->
+    </android.support.design.widget.AppBarLayout>
+
+    <!--<android.support.v4.widget.NestedScrollView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:orientation="vertical"-->
+        <!--app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<com.common.view.CEditTextView-->
+                <!--android:id="@+id/editReportMonth"-->
+                <!--style="@style/txt_333_16"-->
+                <!--android:layout_width="200dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:layout_marginLeft="15dp"-->
+                <!--android:layout_marginRight="15dp"-->
+                <!--android:layout_marginTop="15dp"-->
+                <!--android:background="@drawable/squere_edittext"-->
+                <!--android:drawablePadding="10dp"-->
+                <!--android:drawableRight="@drawable/ic_arrow_drop_down_black_24dp"-->
+                <!--android:focusable="false"-->
+                <!--android:focusableInTouchMode="false"-->
+                <!--android:hint="Month"-->
+                <!--android:inputType="text"-->
+                <!--android:longClickable="false"-->
+                <!--android:padding="12dp"-->
+                <!--android:singleLine="true"-->
+                <!--android:textCursorDrawable="@null" />-->
+
+            <!--<android.support.v7.widget.CardView-->
+                <!--android:id="@+id/card_view"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:layout_margin="10dp"-->
+                <!--app:cardBackgroundColor="@color/white"-->
+                <!--app:cardCornerRadius="0dp"-->
+                <!--app:cardElevation="4dp"-->
+                <!--app:cardPreventCornerOverlap="true"-->
+                <!--app:cardUseCompatPadding="true">-->
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:orientation="vertical">-->
+
+                    <!--<com.common.view.CTextView-->
+                        <!--style="@style/txt_fff_18"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_gravity="center"-->
+                        <!--android:background="@color/primary"-->
+                        <!--android:padding="10dp"-->
+                        <!--android:singleLine="true"-->
+                        <!--android:text="OnDuty" />-->
+
+                    <!--<com.github.mikephil.charting.charts.LineChart-->
+                        <!--android:id="@+id/mChartOnDuty"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="300dp"-->
+                        <!--android:layout_above="@+id/seekBar1"-->
+                        <!--android:layout_margin="10dp" />-->
+
+                <!--</LinearLayout>-->
+            <!--</android.support.v7.widget.CardView>-->
+
+            <!--<android.support.v7.widget.CardView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:layout_marginBottom="10dp"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:layout_marginRight="10dp"-->
+                <!--app:cardBackgroundColor="@color/white"-->
+                <!--app:cardCornerRadius="0dp"-->
+                <!--app:cardElevation="4dp"-->
+                <!--app:cardPreventCornerOverlap="true"-->
+                <!--app:cardUseCompatPadding="true">-->
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:orientation="vertical">-->
+
+                    <!--<com.common.view.CTextView-->
+                        <!--style="@style/txt_fff_18"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_gravity="center"-->
+                        <!--android:background="@color/primaryDark"-->
+                        <!--android:padding="10dp"-->
+                        <!--android:singleLine="true"-->
+                        <!--android:text="Driving" />-->
+
+                    <!--<com.github.mikephil.charting.charts.LineChart-->
+                        <!--android:id="@+id/mChartDriving"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="300dp"-->
+                        <!--android:layout_above="@+id/seekBar1"-->
+                        <!--android:layout_margin="10dp" />-->
+
+                <!--</LinearLayout>-->
+            <!--</android.support.v7.widget.CardView>-->
+        <!--</LinearLayout>-->
+    <!--</android.support.v4.widget.NestedScrollView>-->
+
+</android.support.design.widget.CoordinatorLayout>

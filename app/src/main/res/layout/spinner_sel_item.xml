@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+    android:gravity="center"
+    android:paddingBottom="3dp"
+    android:orientation="horizontal"
+    android:paddingTop="3dp">
+
+    <com.common.view.CTextView
+        android:id="@+id/tvSpinnerTitle"
+        style="@style/txt_666_16"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="left|center_vertical"
+        android:text="@string/app_name" />
+
+    <android.support.v7.widget.AppCompatCheckBox
+        android:checked="false"
+        android:id="@+id/chkSpinnetItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@drawable/checkbox_like_unlike" />
+
+</LinearLayout>

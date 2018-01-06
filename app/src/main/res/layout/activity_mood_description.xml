@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <include layout="@layout/topbar" />
+
+            <ImageView
+                android:id="@+id/imgRefresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|end|right"
+                android:contentDescription="@null"
+                android:padding="10dp"
+                android:src="@drawable/ic_refresh_24dp"
+                android:visibility="gone" />
+        </FrameLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/theme_green"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/theme_green"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <com.common.view.CTextView
+                android:id="@+id/tvBackErrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:drawableStart="@drawable/ic__left_white_24dp"
+                android:focusable="true" />
+
+            <com.common.view.CBTextView
+                style="@style/txt_fff_18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Mood Descriptions"
+                android:textAlignment="center" />
+
+            <com.common.view.CTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_help_white"
+                android:visibility="invisible" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/llMoodUpDowan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <com.common.view.CTextView
+                    style="@style/txt_green_them_18"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Mood" />
+
+                <ImageView
+                    android:id="@+id/imgMoodUp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:src="@drawable/ic_arrow_up_black_" />
+
+                <ImageView
+                    android:id="@+id/imgMoodDow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:focusable="true"
+                    android:src="@drawable/ic_arrow_down_black"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llMoodDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <com.common.view.CTextView
+                    android:id="@+id/tvMood"
+                    style="@style/txt_333_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Representing reports of depressed mood, regardless of whether it is reflected in appearance or not. Includes low spirits, despondency or the feeling of being beyond help and without hope. Rate according to intensity, duration and the extent to which the mood is reported to be influenced by events.
+                " />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:src="@mipmap/moods_1" />
+
+                <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:gravity="center|start"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<ImageView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:src="@mipmap/mood_icon_des" />-->
+
+                <!--<ImageView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:src="@drawable/ic_arrow_forward_black_24dp" />-->
+
+                <!--<ImageView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:src="@mipmap/anxiety_green_2x" />-->
+
+                <!--</LinearLayout>-->
+
+                <com.common.view.CTextView
+                    android:id="@+id/tvMoodD"
+                    style="@style/txt_333_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="0 - No sadness\n1 - Occasional sadness in keeping with the circumstances \n2 - Sad or low but brightens up without difficulty\n3 - Sad and lowness, with difficulty brightening up\n4 - Pervasive feelings of sadness or gloominess. Mood influenced by external circumstances.\n5 - pervasive sadness originating internally and externally \n6 - Continuous or unvarying sadness, misery or despondency" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="@color/theme_gray" />
+
+            <LinearLayout
+                android:id="@+id/llAnxietyUpDowan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <com.common.view.CTextView
+                    style="@style/txt_green_them_18"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Anxiety" />
+
+                <ImageView
+                    android:id="@+id/imgAnxietyUp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:src="@drawable/ic_arrow_up_black_"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/imgAnxietyDow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:focusable="true"
+                    android:src="@drawable/ic_arrow_down_black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llAnxietyDescrip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:visibility="gone">
+
+                <com.common.view.CTextView
+                    style="@style/txt_333_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Representing feelings of ill-defined discomfort, edginess inner turmoil, mental tension mounting to either panic, dread or anguish. Rate according to intensity, frequency, duration and the extent of reassurance called for.\n\n0 - No anxiety\n1 - Mild. Only fleeting inner tension\n2 - Occasional feelings of edginess and ill-defined discomfort\n3 - Common Feelings of tension and intermittent panic which can be mastered with some difficulty\n4 - Continuous feelings of inner tension or intermittent panic which can be mastered with some difficulty\n5 - Continual dread or anguish\n6 - Unrelenting dread or anguish. Overwhelming panic." />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="@color/theme_gray" />
+
+            <LinearLayout
+                android:id="@+id/llEnergyUpDowan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <com.common.view.CTextView
+                    style="@style/txt_green_them_18"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Energy" />
+
+                <ImageView
+                    android:id="@+id/imgEnergyUp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:src="@drawable/ic_arrow_up_black_"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/imgEnergyDow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:focusable="true"
+                    android:src="@drawable/ic_arrow_down_black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llEnergyDescrip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:visibility="gone">
+
+                <com.common.view.CTextView
+                    style="@style/txt_333_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Representing the feeling that life is not worth living, that a natural death would be welcome, suicidal thoughts, and preparation for suicide. Suicidal attempts should not in themselves influence this rating.\n\n0 - Enjoys life or takes it as it comes.\n1 - Enjoys life or takes it as it comes. \n2 - Weary of life. Only fleeting suicidal thoughts\n3 - Weary of life. Only fleeting suicidal thoughts \n4 - Probably better off dead. Suicidal thoughts are common, and suicide is considered a possible solutions, but without specific plans or intention\n5 - Probably better off dead. Suicidal thoughts are common, and suicide is considered a possible solutions, but without specific plans or intention \n6 - Unrelenting dread or anguish. Overwhelming panic." />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="@color/theme_gray" />
+
+            <LinearLayout
+                android:id="@+id/llPessimismUpDowan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <com.common.view.CTextView
+                    style="@style/txt_green_them_18"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Pessimism" />
+
+                <ImageView
+                    android:id="@+id/imgPessimismUp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:src="@drawable/ic_arrow_up_black_"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/imgPessimismDow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:focusable="true"
+                    android:src="@drawable/ic_arrow_down_black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llPessimismDescrip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:visibility="gone">
+
+                <com.common.view.CTextView
+                    style="@style/txt_333_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Representing thoughts of guilt, inferiority, self-reproach, sinfulness, remorse and ruin\n\n0 - No pessimistic thoughts\n1 - No pessimistic thoughts \n2 - Fluctuating ideas of failure, self-reproach or self-depreciation\n3 - Fluctuating ideas of failure, self-reproach or self-depreciation \n4 - Persistent self-accusations, or definite but still rational ideas of guilt or sin. Increasingly pessimistic about the future\n5 - Persistent self-accusations, or definite but still rational ideas of guilt or sin. Increasingly pessimistic about the future \n6 - Delusion of ruin, remorse, or unredeemable sin. Self accusations which are absurd and unshakeable" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="@color/theme_gray" />
+
+            <LinearLayout
+                android:id="@+id/llConcentrationUpDowan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <com.common.view.CTextView
+                    style="@style/txt_green_them_18"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Concentration" />
+
+                <ImageView
+                    android:id="@+id/imgConcentrationUp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:src="@drawable/ic_arrow_up_black_"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/imgConcentrationDow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:focusable="true"
+                    android:src="@drawable/ic_arrow_down_black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llConcentrationDescrip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:visibility="gone">
+
+                <com.common.view.CTextView
+                    style="@style/txt_333_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Representing difficulties in collecting your thoughts leading to incapacitating lack of concentration. Rate according to intensity, frequency, and degree of incapacity produced.\n\n0 - No difficulties in concentration\n1 - No difficulties in concentration \n2 - Occasional difficulties in collecting your thoughts\n3 - Occasional difficulties in collecting your thoughts \n4 - Difficulties in concentrating and sustaining thoughts which reduces ability to read or hold a conversation\n5 - Difficulties in concentrating and sustaining thoughts which reduces ability to read or hold a conversation \n6 - Unable to read or converse without great difficulty" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="@color/theme_gray" />
+
+            <LinearLayout
+                android:id="@+id/llInitiativeUpDowan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <com.common.view.CTextView
+                    style="@style/txt_green_them_18"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Initiative" />
+
+                <ImageView
+                    android:id="@+id/imgInitiativeUp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:src="@drawable/ic_arrow_up_black_"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/imgInitiativeDow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:focusable="true"
+                    android:src="@drawable/ic_arrow_down_black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llInitiativeDescrip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:visibility="gone">
+
+                <com.common.view.CTextView
+                    style="@style/txt_333_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Representing difficulties in collecting your thoughts leading to incapacitating lack of concentration. Rate according to intensity, frequency, and degree of incapacity produced.\n\n0 - Hardly any difficulty getting started. No sluggishness.\n1 - Hardly any difficulty getting started. No sluggishness. \n2 - Difficulties in starting activities\n3 - Difficulties in starting activities \n4 - Difficulties in simple routine activities which should be carried out with effort\n5 - Difficulties in simple routine activities which should be carried out with effort \n6 - Complete lassitude. Unable to do anything without help" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="@color/theme_gray" />
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

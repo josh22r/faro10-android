@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minWidth="300dp"
+    android:orientation="vertical"
+    android:paddingBottom="10dp">
+
+    <com.common.view.CTextView
+        android:id="@+id/tvtitle"
+        style="@style/txt_fff_20"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/accent"
+        android:gravity="center"
+        android:hint="title"
+        android:padding="10dp" />
+
+    <jp.co.recruit_mp.android.lightcalendarview.LightCalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        app:lcv_accentColor="@color/white"
+        app:lcv_dayTextSize="18sp"
+        app:lcv_selectionColor="@color/theme_red"
+        app:lcv_textColor="@color/theme_blue"
+        app:lcv_weekDayTextSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="right"
+        android:orientation="horizontal">
+
+        <com.common.view.CTextView
+            android:id="@+id/tvCancel"
+            style="@style/txt_accent_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="CANCEL" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

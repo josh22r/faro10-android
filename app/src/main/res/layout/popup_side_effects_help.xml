@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.common.view.CTextView
+            style="@style/txt_fff_18"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/theme_gray"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/side_effects" />
+
+        <com.common.view.CTextView
+            style="@style/txt_666_16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:text="Use this screen to record each occurrence of an item. You can review the trending of these items within the charts section.
+To track other items or custom items, go to the physical symptoms screen." />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="horizontal"
+            android:padding="15dp">
+
+            <com.common.view.CTextView
+                android:id="@+id/tvCancel"
+                style="@style/txt_accent_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CANCEL" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

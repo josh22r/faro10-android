@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <include layout="@layout/topbar" />
+
+            <ImageView
+                android:id="@+id/imgRefresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|end|right"
+                android:contentDescription="@null"
+                android:padding="10dp"
+                android:src="@drawable/ic_refresh_24dp"
+                android:visibility="gone" />
+        </FrameLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/theme_red"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/theme_red"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <com.common.view.CTextView
+                android:id="@+id/tvBackErrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:drawableStart="@drawable/ic__left_white_24dp"
+                android:focusable="true" />
+
+            <com.common.view.CBTextView
+                style="@style/txt_fff_18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Observer FAQs"
+                android:textAlignment="center" />
+
+            <com.common.view.CTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_help_white"
+                android:visibility="invisible" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/llMoodUpDowan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <com.common.view.CTextView
+                    style="@style/txt_red_theme_18"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Why become an observer?" />
+
+                <ImageView
+                    android:id="@+id/imgMoodUp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:src="@drawable/ic_arrow_up_black_" />
+
+                <ImageView
+                    android:id="@+id/imgMoodDow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:focusable="true"
+                    android:src="@drawable/ic_arrow_down_black"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llMoodDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <com.common.view.CTextView
+                    android:id="@+id/tvMood"
+                    style="@style/txt_333_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Observer feedback is extremely useful to Clinicians when treating patients.  They have limited visibility into the effectiveness of treatment, and your feedback can greatly assist them!" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="@color/theme_gray" />
+
+            <LinearLayout
+                android:id="@+id/llAnxietyUpDowan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <com.common.view.CTextView
+                    style="@style/txt_red_theme_18"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="How are my observations used by a Clinician?" />
+
+                <ImageView
+                    android:id="@+id/imgAnxietyUp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:src="@drawable/ic_arrow_up_black_"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/imgAnxietyDow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:focusable="true"
+                    android:src="@drawable/ic_arrow_down_black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llAnxietyDescrip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:visibility="gone">
+
+                <com.common.view.CTextView
+                    style="@style/txt_333_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Recognize mania and other behavior that could be crucial to proper diagnosis\n- Between-session visibility into treatment side-effects and effectiveness\n- Insight into medication effectiveness\n- Insight into triggers and other activity that can help provide a holistic patient view\n- Provide additional perspective and information during patient sessions that patient may not provide" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="@color/theme_gray" />
+
+            <LinearLayout
+                android:id="@+id/llEnergyUpDowan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <com.common.view.CTextView
+                    style="@style/txt_red_theme_18"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Can the people I'm observing see what I enter?" />
+
+                <ImageView
+                    android:id="@+id/imgEnergyUp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:src="@drawable/ic_arrow_up_black_"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/imgEnergyDow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:focusable="true"
+                    android:src="@drawable/ic_arrow_down_black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llEnergyDescrip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:visibility="gone">
+
+                <com.common.view.CTextView
+                    style="@style/txt_333_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="The short answer is No.  Only a Clinician that has been approved by your observee can view your observations." />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="@color/theme_gray" />
+
+            <LinearLayout
+                android:id="@+id/llPessimismUpDowan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <com.common.view.CTextView
+                    style="@style/txt_red_theme_18"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="What type of things should I report?" />
+
+                <ImageView
+                    android:id="@+id/imgPessimismUp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:src="@drawable/ic_arrow_up_black_"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/imgPessimismDow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:focusable="true"
+                    android:src="@drawable/ic_arrow_down_black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llPessimismDescrip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:visibility="gone">
+
+                <com.common.view.CTextView
+                    style="@style/txt_333_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Observations regarding observee's mood, behavior, social activity, or other behavior is all very critical information for diagnosis and treatment.   Understanding changes in these areas is critical information for Clinicians during treatment." />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="@color/theme_gray" />
+
+            <LinearLayout
+                android:id="@+id/llConcentrationUpDowan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <com.common.view.CTextView
+                    style="@style/txt_red_theme_18"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="How often should I make observations?" />
+
+                <ImageView
+                    android:id="@+id/imgConcentrationUp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:src="@drawable/ic_arrow_up_black_"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/imgConcentrationDow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:focusable="true"
+                    android:src="@drawable/ic_arrow_down_black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llConcentrationDescrip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:visibility="gone">
+
+                <com.common.view.CTextView
+                    style="@style/txt_333_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Observations should be done as often as necessary to provide insight into observee's mood, behavior and activity." />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="@color/theme_gray" />
+
+            <LinearLayout
+                android:id="@+id/llInitiativeUpDowan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <com.common.view.CTextView
+                    style="@style/txt_red_theme_18"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:singleLine="true"
+                    android:text="How do I add an Observee?" />
+
+                <ImageView
+                    android:id="@+id/imgInitiativeUp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:src="@drawable/ic_arrow_up_black_"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/imgInitiativeDow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:focusable="true"
+                    android:src="@drawable/ic_arrow_down_black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llInitiativeDescrip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:visibility="gone">
+
+                <com.common.view.CTextView
+                    style="@style/txt_333_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="- You cannot add an observee, they must add you.\n- When a Faro user adds you as an Observer on their MY TEAM, then that person will appear here." />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1px"
+                android:background="@color/theme_gray" />
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

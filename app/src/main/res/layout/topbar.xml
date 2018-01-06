@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@color/white"
+    android:minHeight="?attr/actionBarSize"
+    android:orientation="horizontal"
+    app:contentInsetStart="0dp"
+    app:layout_collapseMode="pin"
+    app:layout_scrollFlags="scroll|enterAlways"
+    app:popupTheme="@style/Theme.AppCompat.Light.DarkActionBar"
+    app:theme="@style/Toolbar">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="40dp">
+
+            <com.common.view.CBTextView
+                android:id="@+id/tvTitleText"
+                style="@style/txt_theme_dark_20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:singleLine="true"
+                android:text="Faro" />
+
+            <com.common.view.CBTextView
+                style="@style/txt_accent_20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:singleLine="true"
+                android:text="10" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imgMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|start"
+            android:layout_marginLeft="5dp"
+            android:contentDescription="@null"
+            android:padding="10dp"
+            android:src="@drawable/ic_menu"
+            android:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/imgChartData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|end"
+            android:layout_marginRight="90dp"
+            android:contentDescription="@null"
+            android:padding="10dp"
+            android:src="@drawable/ic_assessment_primary_dark_24dp"
+            android:visibility="visible" />
+
+
+        <ImageView
+            android:id="@+id/imgDashboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right"
+            android:layout_marginRight="50dp"
+            android:contentDescription="@null"
+            android:padding="10dp"
+            android:src="@drawable/ic_dashboard_primary_dark_24dp" />
+
+        <ImageView
+            android:id="@+id/imgMyProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right"
+            android:layout_marginRight="10dp"
+            android:contentDescription="@null"
+            android:padding="10dp"
+            android:src="@drawable/ic_user_primary_dark_24dp" />
+
+        <ImageView
+            android:id="@+id/imgMyProfile2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right"
+            android:layout_marginRight="10dp"
+            android:contentDescription="@null"
+            android:padding="10dp"
+            android:visibility="gone"
+            android:src="@drawable/ic_user_blue" />
+
+
+    </FrameLayout>
+
+
+</android.support.v7.widget.Toolbar>

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <com.common.view.CBTextView
+            style="@style/txt_theme_dark_20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Register" />
+
+        <com.common.view.CTextView
+            style="@style/txt_666_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Enter your information below to set up an account with Faro10" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="@color/white" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="0px"
+                        android:layout_height="0px"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true" />
+
+                    <android.support.design.widget.TextInputLayout
+                        style="@style/TextAppearence.App.TextInputLayout_"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:hintAnimationEnabled="true"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout_">
+
+                        <com.common.view.CEditTextView
+                            android:id="@+id/editUserName"
+                            style="@style/txt_333_16"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/edittext_bg"
+                            android:hint="Username"
+                            android:inputType="textCapWords"
+                            android:padding="5dp"
+                            android:singleLine="true"
+                            android:textCursorDrawable="@null" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        style="@style/TextAppearence.App.TextInputLayout_"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:hintAnimationEnabled="true"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout_">
+
+                        <com.common.view.CEditTextView
+                            android:id="@+id/editPassword"
+                            style="@style/txt_333_16"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/edittext_bg"
+                            android:hint="Password"
+                            android:inputType="textPassword"
+                            android:padding="5dp"
+                            android:singleLine="true"
+                            android:textCursorDrawable="@null" />
+                    </android.support.design.widget.TextInputLayout>
+
+
+                    <android.support.design.widget.TextInputLayout
+                        style="@style/TextAppearence.App.TextInputLayout_"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:hintAnimationEnabled="true"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout_">
+
+                        <com.common.view.CEditTextView
+                            android:id="@+id/editRegEmail"
+                            style="@style/txt_333_16"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/edittext_bg"
+                            android:hint="@string/hint_email"
+                            android:inputType="textEmailAddress|textNoSuggestions"
+                            android:padding="5dp"
+                            android:singleLine="true"
+                            android:textCursorDrawable="@null" />
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/cbMale"
+                    style="@style/txt_666_14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Male" />
+
+                <CheckBox
+                    android:id="@+id/cbFemale"
+                    style="@style/txt_666_14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Female" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/cbIHaveRead"
+                    style="@style/txt_666_14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="I have read the " />
+
+                <com.common.view.CTextView
+                    android:id="@+id/tvLegalDisclaime"
+                    style="@style/txt_accent_14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:singleLine="true"
+                    android:text="Legal Disclaimer" />
+
+            </LinearLayout>
+
+            <com.common.view.CBButtonViewM
+                android:id="@+id/btnRegister"
+                style="@style/LightFlatWaveColorButtonRippleStyle_"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/btn_bg_"
+                android:text="Register"
+                android:textColor="@color/white" />
+
+            <com.common.view.CTextView
+                android:id="@+id/tvCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="right"
+                android:text="CANCEL"
+                android:textColor="@color/theme_red" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

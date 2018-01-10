@@ -16,7 +16,7 @@
             style="@style/txt_theme_dark_20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="0dp"
             android:text="Register" />
 
         <com.common.view.CTextView
@@ -30,7 +30,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -39,22 +39,11 @@
                 android:layout_height="match_parent"
                 android:gravity="center">
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:background="@color/white" />
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="0px"
-                        android:layout_height="0px"
-                        android:focusable="true"
-                        android:focusableInTouchMode="true" />
 
                     <android.support.design.widget.TextInputLayout
                         style="@style/TextAppearence.App.TextInputLayout_"
@@ -71,28 +60,6 @@
                             android:background="@drawable/edittext_bg"
                             android:hint="Username"
                             android:inputType="textCapWords"
-                            android:padding="5dp"
-                            android:singleLine="true"
-                            android:textCursorDrawable="@null" />
-                    </android.support.design.widget.TextInputLayout>
-
-                    <android.support.design.widget.TextInputLayout
-                        style="@style/TextAppearence.App.TextInputLayout_"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        app:hintAnimationEnabled="true"
-                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout_">
-
-                        <com.common.view.CEditTextView
-                            android:id="@+id/editPassword"
-                            style="@style/txt_333_16"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/edittext_bg"
-                            android:hint="Password"
-                            android:inputType="textPassword"
                             android:padding="5dp"
                             android:singleLine="true"
                             android:textCursorDrawable="@null" />
@@ -121,13 +88,119 @@
                             android:textCursorDrawable="@null" />
                     </android.support.design.widget.TextInputLayout>
 
+                    <android.support.design.widget.TextInputLayout
+                        style="@style/TextAppearence.App.TextInputLayout_"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:hintAnimationEnabled="true"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout_">
+
+                        <com.common.view.CEditTextView
+                            android:id="@+id/editPassword"
+                            style="@style/txt_333_16"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/edittext_bg"
+                            android:hint="Password"
+                            android:inputType="textPassword"
+                            android:padding="5dp"
+                            android:singleLine="true"
+                            android:textCursorDrawable="@null" />
+                    </android.support.design.widget.TextInputLayout>
+
                 </LinearLayout>
             </FrameLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Password must:"
+                    android:textColor="@color/black" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/lblCharacterLength"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="• Be at least 8 - 15 characters" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/lblLowercase"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="• Have at least one lowercase character" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/lblUppercase"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="• Have at least one uppercase character" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/lblNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="• Have at least one number" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/lblSymbol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="• Have at least one symbol" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="15dp"
                 android:orientation="horizontal">
 
                 <CheckBox
@@ -178,7 +251,7 @@
                 style="@style/LightFlatWaveColorButtonRippleStyle_"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="15dp"
                 android:background="@drawable/btn_bg_"
                 android:text="Register"
                 android:textColor="@color/white" />

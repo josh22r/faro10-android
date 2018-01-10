@@ -2,7 +2,11 @@ package com.kartum;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -48,6 +52,17 @@ public class RegisterActivity extends BaseActivity {
     CheckBox cbFemale;
     @BindView(R.id.cbIHaveRead)
     CheckBox cbIHaveRead;
+
+    @BindView(R.id.lblCharacterLength)
+    TextView lblCharacterLength;
+    @BindView(R.id.lblLowercase)
+    TextView lblLowercase;
+    @BindView(R.id.lblUppercase)
+    TextView lblUppercase;
+    @BindView(R.id.lblNumber)
+    TextView lblNumber;
+    @BindView(R.id.lblSymbol)
+    TextView lblSymbol;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -103,6 +118,23 @@ public class RegisterActivity extends BaseActivity {
             }
         });
 
+        editPassword.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                updateRequirementLabels(charSequence.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
 
     }
 
@@ -115,6 +147,39 @@ public class RegisterActivity extends BaseActivity {
             if (getString.equalsIgnoreCase("1")) {
                 cbIHaveRead.setChecked(true);
             }
+        }
+    }
+
+    private void updateRequirementLabels(String passwordText) {
+
+        if (passwordText.length() >= 8 && passwordText.length() <= 15) {
+            lblCharacterLength.setTextColor(Color.parseColor("#4FA59F"));
+        } else {
+            lblCharacterLength.setTextColor(Color.GRAY);
+        }
+
+        if (passwordText.matches(".*\\d.*")) {
+            lblNumber.setTextColor(Color.parseColor("#4FA59F"));
+        } else {
+            lblNumber.setTextColor(Color.GRAY);
+        }
+
+        if (passwordText.matches(".*[a-z].*")) {
+            lblLowercase.setTextColor(Color.parseColor("#4FA59F"));
+        } else {
+            lblLowercase.setTextColor(Color.GRAY);
+        }
+
+        if (passwordText.matches(".*[A-Z].*")) {
+            lblUppercase.setTextColor(Color.parseColor("#4FA59F"));
+        } else {
+            lblUppercase.setTextColor(Color.GRAY);
+        }
+
+        if (passwordText.matches(".*[!@#$%^&*+=?-].*")) {
+            lblSymbol.setTextColor(Color.parseColor("#4FA59F"));
+        } else {
+            lblSymbol.setTextColor(Color.GRAY);
         }
     }
 

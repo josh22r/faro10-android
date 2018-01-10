@@ -100,6 +100,11 @@ public class Utils {
                 val);
     }
 
+    public static Boolean getPref(Context c, String pref, Boolean val) {
+        return PreferenceManager.getDefaultSharedPreferences(c).getBoolean(pref,
+                val);
+    }
+
     public static void setPref(Context c, String pref, boolean val) {
         Editor e = PreferenceManager.getDefaultSharedPreferences(c).edit();
         e.putBoolean(pref, val);
@@ -1330,7 +1335,7 @@ public class Utils {
             calendar.set(Calendar.AM_PM, Calendar.AM);
 
             tData.time = "08:30 AM";
-            tData.lable = "Mood entry AM";
+            tData.lable = "Have you tracked your mood this morning?";
             tData.timeMin = (8 * 60) + 30;
             tData.timestamp = calendar.getTimeInMillis();
             tData.reqCode = 12345677;
@@ -1341,7 +1346,7 @@ public class Utils {
             calendar.set(Calendar.AM_PM, Calendar.PM);
 
             tData.time = "08:30 PM";
-            tData.lable = "Mood entry PM";
+            tData.lable = "Have you tracked your mood today?";
             tData.timeMin = (20 * 60) + 30;
             tData.timestamp = calendar.getTimeInMillis();
             tData.reqCode = 12345678;

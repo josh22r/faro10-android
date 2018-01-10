@@ -2,6 +2,7 @@ package com.kartum;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -31,6 +32,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.Call;
 import okhttp3.HttpUrl;
+import okhttp3.internal.Util;
+
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
 
 public class MainActivity extends BaseActivity {
 
@@ -73,6 +78,22 @@ public class MainActivity extends BaseActivity {
 
     private void init() {
         //setTitleText("Faro10");
+
+        // check whether default alarms were set after login
+        Boolean appHasSetDefaultAlarms = Utils.getPref(getActivity(), "Alarms.AppHasSetDefaultAlarms", FALSE);
+        if (!appHasSetDefaultAlarms) {
+
+            // create + save default alarms
+            ArrayList<SettingActivity.ReminderData> data = Utils.getDefaultReminders(getActivity());;
+            Utils.setPref(getActivity(), Constant.REMINDER + "_" + Utils.getUid(getActivity()), new Gson().toJson(data));
+
+            // reschedule alarms
+            Utils.stopAllReminders(this, data);
+            Utils.setLatestReminder(this, data);
+
+            // flip flag so this does't occur again
+            Utils.setPref(getActivity(), "Alarms.AppHasSetDefaultAlarms", TRUE);
+        }
 
         llMood.setOnClickListener(new View.OnClickListener() {
             @Override

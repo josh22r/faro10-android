@@ -88,16 +88,16 @@ public class SettingActivity extends BaseActivity {
             }
         });
 
-        String pref = Utils.getPref(getActivity(), Constant.REMINDER + "_" + Utils.getUid(getActivity()), "");
-//        Utils.delPref(getActivity(), Constant.REMINDER);
-
-        if (pref.isEmpty()) {
-            data = Utils.getDefaultReminders(getActivity());
-            Utils.setPref(getActivity(), Constant.REMINDER + "_" + Utils.getUid(getActivity()), new Gson().toJson(data));
-        } else {
-            data = new Gson().fromJson(pref, new TypeToken<ArrayList<ReminderData>>() {
-            }.getType());
-        }
+//        String pref = Utils.getPref(getActivity(), Constant.REMINDER + "_" + Utils.getUid(getActivity()), "");
+////        Utils.delPref(getActivity(), Constant.REMINDER);
+//
+//        if (pref.isEmpty()) {
+//            data = Utils.getDefaultReminders(getActivity());
+//            Utils.setPref(getActivity(), Constant.REMINDER + "_" + Utils.getUid(getActivity()), new Gson().toJson(data));
+//        } else {
+//            data = new Gson().fromJson(pref, new TypeToken<ArrayList<ReminderData>>() {
+//            }.getType());
+//        }
 
         mAdapter.setmEventlistener(new EditSettingAdapter.Eventlistener() {
             @Override

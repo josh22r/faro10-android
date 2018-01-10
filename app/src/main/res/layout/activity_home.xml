@@ -80,15 +80,6 @@
                         android:layout_margin="10dp"
                         android:text="Mood" />
 
-                    <com.common.view.CTextView
-                        android:id="@+id/tvMoodDate"
-                        style="@style/txt_000_14"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_margin="5dp"
-                        android:text="Loading..." />
-
                 </LinearLayout>
 
             </LinearLayout>
@@ -126,14 +117,6 @@
                         android:text="@string/symptoms_side_effects"
                         android:textAlignment="center" />
 
-                    <com.common.view.CTextView
-                        android:id="@+id/tvSideEffectsDate"
-                        style="@style/txt_000_14"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Loading..." />
-
                 </LinearLayout>
 
             </LinearLayout>
@@ -167,15 +150,6 @@
                         android:layout_gravity="center"
                         android:layout_margin="10dp"
                         android:text="Journal" />
-
-                    <com.common.view.CTextView
-                        android:id="@+id/tvJournalDate"
-                        style="@style/txt_000_14"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_margin="5dp"
-                        android:text="Loading..." />
 
                 </LinearLayout>
 
@@ -220,15 +194,6 @@
                         android:layout_margin="10dp"
                         android:text="Prescriptions" />
 
-                    <com.common.view.CTextView
-                        android:id="@+id/tvPrescriptionDate"
-                        style="@style/txt_000_14"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_margin="5dp"
-                        android:text="Loading..." />
-
                 </LinearLayout>
             </LinearLayout>
 
@@ -269,14 +234,6 @@
                             android:text="@string/physical_symptoms"
                             android:textAlignment="center" />
 
-                        <com.common.view.CTextView
-                            android:id="@+id/tvPhysicalSympDate"
-                            style="@style/txt_000_14"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="Loading..." />
-
                     </LinearLayout>
 
                 </FrameLayout>
@@ -314,15 +271,6 @@
                         android:layout_gravity="center"
                         android:layout_margin="10dp"
                         android:text="Observe" />
-
-                    <com.common.view.CTextView
-                        android:id="@+id/tvObserveDate"
-                        style="@style/txt_000_14"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_margin="5dp"
-                        android:text="Loading..." />
 
                 </LinearLayout>
 

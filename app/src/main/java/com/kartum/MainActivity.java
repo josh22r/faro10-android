@@ -53,19 +53,6 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.llObserve)
     LinearLayout llObserve;
 
-    @BindView(R.id.tvMoodDate)
-    TextView tvMoodDate;
-    @BindView(R.id.tvPrescriptionDate)
-    TextView tvPrescriptionDate;
-    @BindView(R.id.tvSideEffectsDate)
-    TextView tvSideEffectsDate;
-    @BindView(R.id.tvPhysicalSympDate)
-    TextView tvPhysicalSympDate;
-    @BindView(R.id.tvJournalDate)
-    TextView tvJournalDate;
-    @BindView(R.id.tvObserveDate)
-    TextView tvObserveDate;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -246,13 +233,6 @@ public class MainActivity extends BaseActivity {
 //        tvJournalDate.setText(Utils.parseTime(calendar.getTimeInMillis(), "dd/MM/yy  hh:mm a"));
 //        tvObserveDate.setText(Utils.parseTime(calendar.getTimeInMillis(), "dd/MM/yy  hh:mm a"));
 
-        tvMoodDate.setText(Utils.parseTime(calendar.getTimeInMillis(), "MM/dd/yy  hh:mm a"));
-        tvPrescriptionDate.setText(Utils.parseTime(calendar.getTimeInMillis(), "MM/dd/yy  hh:mm a"));
-        tvSideEffectsDate.setText(Utils.parseTime(calendar.getTimeInMillis(), "MM/dd/yy  hh:mm a"));
-        tvPhysicalSympDate.setText(Utils.parseTime(calendar.getTimeInMillis(), "MM/dd/yy  hh:mm a"));
-        tvJournalDate.setText(Utils.parseTime(calendar.getTimeInMillis(), "MM/dd/yy  hh:mm a"));
-        tvObserveDate.setText(Utils.parseTime(calendar.getTimeInMillis(), "MM/dd/yy  hh:mm a"));
-
 //        tvMoodDate.setText(Utils.parseTimeUTCtoDefault(res.lastEntry, "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", "dd/MM/yy  hh:mm a"));
 //        tvPrescriptionDate.setText(Utils.parseTimeUTCtoDefault(res.lastEntry, "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", "dd/MM/yy  hh:mm a"));
 //        tvSideEffectsDate.setText(Utils.parseTimeUTCtoDefault(res.lastEntry, "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", "dd/MM/yy  hh:mm a"));
@@ -352,11 +332,6 @@ public class MainActivity extends BaseActivity {
 
     public void fillData(DashboardStatsRes res) {
 
-        tvMoodDate.setText(Utils.parseTimeUTCtoDefault(res.lastEntry, "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", "MM/dd/yy  hh:mm a"));
-        tvPrescriptionDate.setText(Utils.parseTimeUTCtoDefault(res.lastEntry, "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", "MM/dd/yy  hh:mm a"));
-        tvSideEffectsDate.setText(Utils.parseTimeUTCtoDefault(res.lastEntry, "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", "MM/dd/yy  hh:mm a"));
-        tvPhysicalSympDate.setText(Utils.parseTimeUTCtoDefault(res.lastEntry, "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", "MM/dd/yy  hh:mm a"));
-        tvJournalDate.setText(Utils.parseTimeUTCtoDefault(res.lastEntry, "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", "MM/dd/yy  hh:mm a"));
-        tvObserveDate.setText(Utils.parseTimeUTCtoDefault(res.lastEntry, "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", "MM/dd/yy  hh:mm a"));
+        
     }
 }

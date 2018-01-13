@@ -158,18 +158,6 @@
 
             </FrameLayout>
 
-            <com.common.view.CTextView
-                android:id="@+id/tvAttended"
-                style="@style/txt_333_16"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_weight="0.7"
-                android:background="@drawable/squere_edittext"
-                android:drawableRight="@drawable/ic_arrow_down_black"
-                android:padding="10dp"
-                android:text="Attended Session" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

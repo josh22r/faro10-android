@@ -66,8 +66,6 @@ public class JournalActivity extends BaseActivity {
 
     @BindView(R.id.tvBackErrow)
     TextView tvBackErrow;
-    @BindView(R.id.tvAttended)
-    TextView tvAttended;
     @BindView(R.id.tvGetDate)
     TextView tvGetDate;
     @BindView(R.id.editJournalEntry)
@@ -144,14 +142,6 @@ public class JournalActivity extends BaseActivity {
 //            }
 //        });
 
-
-        tvAttended.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showDialog();
-            }
-        });
-
         imgSelectDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -227,68 +217,6 @@ public class JournalActivity extends BaseActivity {
     }
 
     Dialog dialog;
-
-    public void showDialog() {
-
-        dialog = new Dialog(getActivity());
-        dialog.setCanceledOnTouchOutside(true);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setCancelable(true);
-        dialog.setContentView(R.layout.popup_sessions_attended);
-
-        rvListAttendedPopup = (RecyclerView) dialog.findViewById(R.id.rvListAttendedPopup);
-        TextView tvCancel = (TextView) dialog.findViewById(R.id.tvCancel);
-        TextView tvOk = (TextView) dialog.findViewById(R.id.tvOk);
-
-        layoutManager = new LinearLayoutManager(this);
-        rvListAttendedPopup.setLayoutManager(layoutManager);
-        mAdapter = new JournalAttendedPopupAdapter(this);
-        rvListAttendedPopup.setAdapter(mAdapter);
-
-        ArrayList<String> iDs = new ArrayList<>();
-        try {
-            iDs = Utils.asList(tvAttended.getTag().toString());
-        } catch (Exception e) {
-        }
-
-        ArrayList<Spinner> data = new ArrayList<>();
-        data.add(new Spinner("Support Group", "Support Group").setSelected(iDs.contains("Support Group")));
-        data.add(new Spinner("Professional Consultant", "Professional Consultant").setSelected(iDs.contains("Professional Consultant")));
-        data.add(new Spinner("Counseling", "Counseling").setSelected(iDs.contains("Counseling")));
-        data.add(new Spinner("Cognitive Behavior Therapy(CBT)", "Cognitive Behavior Therapy(CBT)").setSelected(iDs.contains("Cognitive Behavior Therapy(CBT)")));
-        data.add(new Spinner("Computerized Cognitive Behavior Therapy", "Computerized Cognitive Behavior Therapy").setSelected(iDs.contains("Computerized Cognitive Behavior Therapy")));
-        data.add(new Spinner("Psychotherapy", "Psychotherapy").setSelected(iDs.contains("Psychotherapy")));
-        data.add(new Spinner("Dialection Behavior Therapy(DBT)", "Dialection Behavior Therapy(DBT)").setSelected(iDs.contains("Dialection Behavior Therapy(DBT)")));
-        data.add(new Spinner("Psychiatry", "Psychiatry").setSelected(iDs.contains("Psychiatry")));
-
-        mAdapter.addAll(data);
-
-        mAdapter.setEventlistener(new JournalAttendedPopupAdapter.Eventlistener() {
-            @Override
-            public void onItemviewClick(int position) {
-                mAdapter.changeSelection(position, true);
-            }
-        });
-
-        tvOk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-                selectedId = mAdapter.getSelectedIds();
-                tvAttended.setText(selectedId);
-                tvAttended.setTag(selectedId);
-            }
-        });
-        tvCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                selectedId = "";
-                dialog.dismiss();
-            }
-        });
-
-        dialog.show();
-    }
 
     public void showDatePicker(final TextView textView) {
         DatePickerDialog.Builder builder = null;

@@ -18,6 +18,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.kartum.adapter.ChooseUserPopupAdapter;
 import com.kartum.utils.AsyncResponseHandlerOk;
+import com.kartum.utils.CompletionHandler;
 import com.kartum.utils.Constant;
 import com.kartum.utils.Debug;
 import com.kartum.utils.HttpClient;
@@ -118,13 +119,28 @@ public class MakeObserveActivity extends BaseActivity {
         //setTitleText("Faro10");
 
 //        Utils.initSeekBar(getActivity(), sbMood);
-        Utils.initSeekBar(getActivity(), sbSocialInteraction);
+        Utils.initSeekBar(getActivity(), sbSocialInteraction, new CompletionHandler() {
+            @Override
+            public void onComplete() {
+                // do nothing
+            }
+        });
 //        Utils.initSeekBar(getActivity(), sbHopelesssness);
 //        Utils.initSeekBar(getActivity(), sbHyperactive);
 //        Utils.initSeekBar(getActivity(), sbEnergy);
 //        Utils.initSeekBar(getActivity(), sbActivity);
-        Utils.initSeekBar(getActivity(), sbWorkSchool);
-        Utils.initSeekBar(getActivity(), sbFamilyLife);
+        Utils.initSeekBar(getActivity(), sbWorkSchool, new CompletionHandler() {
+            @Override
+            public void onComplete() {
+                //do nothing
+            }
+        });
+        Utils.initSeekBar(getActivity(), sbFamilyLife, new CompletionHandler() {
+            @Override
+            public void onComplete() {
+                // do nothing
+            }
+        });
 //        Utils.initSeekBar(getActivity(), sbDagerous);
 //        Utils.initSeekBar(getActivity(), sbSubstanceAbuse);
 //        Utils.initSeekBar(getActivity(), sbDelusional);

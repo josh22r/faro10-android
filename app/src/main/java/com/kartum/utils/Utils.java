@@ -77,6 +77,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
+import java.util.concurrent.CompletableFuture;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -1150,7 +1151,7 @@ public class Utils {
                 .buildRound(count, Color.WHITE);
     }
 
-    public static void initSeekBar(final Context c, SeekBar seekBar) {
+    public static void initSeekBar(final Context c, SeekBar seekBar, final CompletionHandler onProgressChangedComplete) {
 
         TextDrawable drawable1 = Utils.initTextDrawable(c, c.getResources().getColor(R.color.theme_blue));
         seekBar.setThumb(drawable1);
@@ -1176,6 +1177,8 @@ public class Utils {
                     seekBar.setThumb(drawable1);
                     seekBar.getProgressDrawable().setColorFilter(c.getResources().getColor(R.color.theme_red), PorterDuff.Mode.SRC_IN);
                 }
+
+                onProgressChangedComplete.onComplete();
             }
 
             @Override

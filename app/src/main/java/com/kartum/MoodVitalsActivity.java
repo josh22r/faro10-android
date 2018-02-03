@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.kartum.objects.Spinner;
 import com.kartum.utils.AsyncResponseHandlerOk;
+import com.kartum.utils.CompletionHandler;
 import com.kartum.utils.Debug;
 import com.kartum.utils.HttpClient;
 import com.kartum.utils.RequestParamsUtils;
@@ -98,6 +99,16 @@ public class MoodVitalsActivity extends BaseActivity {
     @BindView(R.id.imgPessimism)
     ImageView imgPessimism;
 
+    private boolean hasMoodBeenSelected = false;
+    private boolean hasAnxietyBeenSelected = false;
+    private boolean hasEnergyBeenSelected = false;
+    private boolean hasPessimismBeenSelected = false;
+    private boolean hasConcentrationBeenSelected = false;
+    private boolean hasInitiativeBeenSelected = false;
+    private boolean hasWorkLifeSelected = false;
+    private boolean hasSocialLifeSelected = false;
+    private boolean hasFamilyLifeSelected = false;
+
     float[] radii;
 
     private int i = 0;
@@ -158,9 +169,27 @@ public class MoodVitalsActivity extends BaseActivity {
         });
 //
 
-        Utils.initSeekBar(getActivity(), sbSocialLife);
-        Utils.initSeekBar(getActivity(), sbWorkLife);
-        Utils.initSeekBar(getActivity(), sbFamilyLife);
+        // add completion handlers to indicate when user has selected a value
+        Utils.initSeekBar(getActivity(), sbSocialLife, new CompletionHandler() {
+            @Override
+            public void onComplete() {
+                hasSocialLifeSelected = true;
+            }
+        });
+
+        Utils.initSeekBar(getActivity(), sbWorkLife, new CompletionHandler() {
+            @Override
+            public void onComplete() {
+                hasWorkLifeSelected = true;
+            }
+        });
+
+        Utils.initSeekBar(getActivity(), sbFamilyLife, new CompletionHandler() {
+            @Override
+            public void onComplete() {
+                hasFamilyLifeSelected = true;
+            }
+        });
 
         ProgressDrawable bgProgress1 = new ProgressDrawable(0xdd00ff00, 0x4400ff00);
         sbMood.setProgressDrawable(bgProgress1);
@@ -168,6 +197,7 @@ public class MoodVitalsActivity extends BaseActivity {
         sbMood.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progresss, boolean b) {
+                hasMoodBeenSelected = true;
 
                 if (sbMood.getProgress() == 0) {
                     imgMood.setImageResource(R.mipmap.mood_icon_0);
@@ -224,6 +254,7 @@ public class MoodVitalsActivity extends BaseActivity {
         sbAnxiety.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progresss, boolean b) {
+                hasAnxietyBeenSelected = true;
 
                 if (sbAnxiety.getProgress() == 0) {
                     imgAnxiety.setImageResource(R.mipmap.anxiety_icon_0);
@@ -282,7 +313,7 @@ public class MoodVitalsActivity extends BaseActivity {
         sbEnergy.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progresss, boolean b) {
-
+                hasEnergyBeenSelected = true;
 
                 if (sbEnergy.getProgress() == 0) {
                     imgEnergy.setImageResource(R.mipmap.energy_icon_0);
@@ -340,6 +371,7 @@ public class MoodVitalsActivity extends BaseActivity {
         sbPessimism.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progresss, boolean b) {
+                hasPessimismBeenSelected = true;
 
                 if (sbPessimism.getProgress() == 0) {
                     imgPessimism.setImageResource(R.mipmap.pessimism_icon_0);
@@ -397,6 +429,7 @@ public class MoodVitalsActivity extends BaseActivity {
         sbConcentration.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progresss, boolean b) {
+                hasConcentrationBeenSelected = true;
 
                 if (sbConcentration.getProgress() == 0) {
                     imgConcentration.setImageResource(R.mipmap.concentration_icon_0);
@@ -454,6 +487,7 @@ public class MoodVitalsActivity extends BaseActivity {
         sbInitiative.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progresss, boolean b) {
+                hasInitiativeBeenSelected = true;
 
                 if (sbInitiative.getProgress() == 0) {
                     imgInitiative.setImageResource(R.mipmap.initiative_icon_0);
@@ -526,17 +560,35 @@ public class MoodVitalsActivity extends BaseActivity {
     public void setMoodEntryData() {
         try {
             showDialog("");
-
+            
             FormBody.Builder body = RequestParamsUtils.newRequestFormBody(getActivity());
-            body.addEncoded(RequestParamsUtils.FEELING, String.valueOf(sbMood.getProgress()));
-            body.addEncoded(RequestParamsUtils.ANXIETY, String.valueOf(sbAnxiety.getProgress()));
-            body.addEncoded(RequestParamsUtils.ENERGY, String.valueOf(sbEnergy.getProgress()));
-            body.addEncoded(RequestParamsUtils.PESSIMISM, String.valueOf(sbPessimism.getProgress()));
-            body.addEncoded(RequestParamsUtils.CONCENTRATION, String.valueOf(sbConcentration.getProgress()));
-            body.addEncoded(RequestParamsUtils.INITIATIVE, String.valueOf(sbInitiative.getProgress()));
-            body.addEncoded(RequestParamsUtils.WORK_LIFE, String.valueOf(sbWorkLife.getProgress()));
-            body.addEncoded(RequestParamsUtils.SOCIAL_LIFE, String.valueOf(sbSocialLife.getProgress()));
-            body.addEncoded(RequestParamsUtils.FAMILY_LIFE, String.valueOf(sbFamilyLife.getProgress()));
+
+            if (hasMoodBeenSelected)
+                body.addEncoded(RequestParamsUtils.FEELING, String.valueOf(sbMood.getProgress()));
+
+            if (hasAnxietyBeenSelected)
+                body.addEncoded(RequestParamsUtils.ANXIETY, String.valueOf(sbAnxiety.getProgress()));
+
+            if (hasEnergyBeenSelected)
+                body.addEncoded(RequestParamsUtils.ENERGY, String.valueOf(sbEnergy.getProgress()));
+
+            if (hasPessimismBeenSelected)
+                body.addEncoded(RequestParamsUtils.PESSIMISM, String.valueOf(sbPessimism.getProgress()));
+
+            if (hasConcentrationBeenSelected)
+                body.addEncoded(RequestParamsUtils.CONCENTRATION, String.valueOf(sbConcentration.getProgress()));
+
+            if (hasInitiativeBeenSelected)
+                body.addEncoded(RequestParamsUtils.INITIATIVE, String.valueOf(sbInitiative.getProgress()));
+
+            if (hasWorkLifeSelected)
+                body.addEncoded(RequestParamsUtils.WORK_LIFE, String.valueOf(sbWorkLife.getProgress()));
+
+            if (hasSocialLifeSelected)
+                body.addEncoded(RequestParamsUtils.SOCIAL_LIFE, String.valueOf(sbSocialLife.getProgress()));
+
+            if (hasFamilyLifeSelected)
+                body.addEncoded(RequestParamsUtils.FAMILY_LIFE, String.valueOf(sbFamilyLife.getProgress()));
 
             if (tvSelfHarm.getText().toString().equalsIgnoreCase("Select")) {
                 body.addEncoded(RequestParamsUtils.SELF_HARM, "");

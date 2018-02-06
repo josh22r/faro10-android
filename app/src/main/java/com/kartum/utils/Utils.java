@@ -1194,7 +1194,7 @@ public class Utils {
 
     }
 
-    public static void initSeekBarSidEffects(final Context c, SeekBar seekBar) {
+    public static void initSeekBarSidEffects(final Context c, SeekBar seekBar, final CompletionHandler onProgressChangedComplete) {
 
         TextDrawable drawable1 = Utils.initTextDrawable(c, c.getResources().getColor(R.color.theme_blue));
         seekBar.setThumb(drawable1);
@@ -1220,6 +1220,9 @@ public class Utils {
                     seekBar.setThumb(drawable1);
                     seekBar.getProgressDrawable().setColorFilter(c.getResources().getColor(R.color.theme_red), PorterDuff.Mode.SRC_IN);
                 }
+
+                if (onProgressChangedComplete != null)
+                    onProgressChangedComplete.onComplete();
             }
 
             @Override

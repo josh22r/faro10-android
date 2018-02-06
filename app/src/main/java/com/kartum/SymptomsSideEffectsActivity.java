@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.kartum.adapter.SymptomsSideEffectAdapter;
 import com.kartum.objects.Spinner;
 import com.kartum.utils.AsyncResponseHandlerOk;
+import com.kartum.utils.CompletionHandler;
 import com.kartum.utils.Debug;
 import com.kartum.utils.HttpClient;
 import com.kartum.utils.RequestParamsUtils;
@@ -67,6 +68,10 @@ public class SymptomsSideEffectsActivity extends BaseActivity {
     Button btnSave;
     Calendar calendar;
 
+    private boolean hasSleepSelected = false;
+    private boolean hasAppetiteSelected = false;
+    private boolean hasJoySelected = false;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,9 +102,26 @@ public class SymptomsSideEffectsActivity extends BaseActivity {
 //        data.add(new Spinner("6", "Visual Hallucination"));
         mAdapter.addAll(data);
 
-        Utils.initSeekBarSidEffects(getActivity(), sbSleep);
-        Utils.initSeekBarSidEffects(getActivity(), sbAppetite);
-        Utils.initSeekBarSidEffects(getActivity(), sbJoy);
+        Utils.initSeekBarSidEffects(getActivity(), sbSleep, new CompletionHandler() {
+            @Override
+            public void onComplete() {
+                hasSleepSelected = true;
+            }
+        });
+
+        Utils.initSeekBarSidEffects(getActivity(), sbAppetite, new CompletionHandler() {
+            @Override
+            public void onComplete() {
+                hasAppetiteSelected = true;
+            }
+        });
+
+        Utils.initSeekBarSidEffects(getActivity(), sbJoy, new CompletionHandler() {
+            @Override
+            public void onComplete() {
+                hasJoySelected = true;
+            }
+        });
 
         tvBackErrow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -298,9 +320,15 @@ public class SymptomsSideEffectsActivity extends BaseActivity {
 //                body.addEncoded(RequestParamsUtils.HALLUCINATION, "nill");
 //            }
 
-            body.addEncoded(RequestParamsUtils.SLEEP, String.valueOf(sbSleep.getProgress()));
-            body.addEncoded(RequestParamsUtils.APPETITE, String.valueOf(sbAppetite.getProgress()));
-            body.addEncoded(RequestParamsUtils.JOY, String.valueOf(sbJoy.getProgress()));
+            if (hasSleepSelected)
+                body.addEncoded(RequestParamsUtils.SLEEP, String.valueOf(sbSleep.getProgress()));
+
+            if (hasAppetiteSelected)
+                body.addEncoded(RequestParamsUtils.APPETITE, String.valueOf(sbAppetite.getProgress()));
+
+            if (hasJoySelected)
+                body.addEncoded(RequestParamsUtils.JOY, String.valueOf(sbJoy.getProgress()));
+
             body.addEncoded(RequestParamsUtils.SYMP_WEIGHT, editeEntWieght.getText().toString().trim());
             body.addEncoded(RequestParamsUtils.UPDATED_AT, tvGetDate.getText().toString().trim());
 

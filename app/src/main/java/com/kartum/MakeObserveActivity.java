@@ -146,15 +146,15 @@ public class MakeObserveActivity extends BaseActivity {
 //        Utils.initSeekBar(getActivity(), sbDelusional);
 //        Utils.initSeekBar(getActivity(), sbHallucinations);
 
-        Utils.initSeekBarSidEffects(getActivity(), sbMood);
-        Utils.initSeekBarSidEffects(getActivity(), sbHopelesssness);
-        Utils.initSeekBarSidEffects(getActivity(), sbHyperactive);
-        Utils.initSeekBarSidEffects(getActivity(), sbActivity);
-        Utils.initSeekBarSidEffects(getActivity(), sbDagerous);
-        Utils.initSeekBarSidEffects(getActivity(), sbSubstanceAbuse);
-        Utils.initSeekBarSidEffects(getActivity(), sbDelusional);
-        Utils.initSeekBarSidEffects(getActivity(), sbHallucinations);
-        Utils.initSeekBarSidEffects(getActivity(), sbEnergy);
+        Utils.initSeekBarSidEffects(getActivity(), sbMood, null);
+        Utils.initSeekBarSidEffects(getActivity(), sbHopelesssness, null);
+        Utils.initSeekBarSidEffects(getActivity(), sbHyperactive, null);
+        Utils.initSeekBarSidEffects(getActivity(), sbActivity, null);
+        Utils.initSeekBarSidEffects(getActivity(), sbDagerous, null);
+        Utils.initSeekBarSidEffects(getActivity(), sbSubstanceAbuse, null);
+        Utils.initSeekBarSidEffects(getActivity(), sbDelusional, null);
+        Utils.initSeekBarSidEffects(getActivity(), sbHallucinations, null);
+        Utils.initSeekBarSidEffects(getActivity(), sbEnergy, null);
 
         tvBackErrow.setOnClickListener(new View.OnClickListener() {
             @Override

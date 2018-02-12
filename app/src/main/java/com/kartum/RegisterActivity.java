@@ -52,6 +52,8 @@ public class RegisterActivity extends BaseActivity {
     CheckBox cbFemale;
     @BindView(R.id.cbIHaveRead)
     CheckBox cbIHaveRead;
+    @BindView(R.id.cbPaidTrial)
+    CheckBox cbPaidTrial;
 
     @BindView(R.id.lblCharacterLength)
     TextView lblCharacterLength;
@@ -271,6 +273,7 @@ public class RegisterActivity extends BaseActivity {
             body.addEncoded(RequestParamsUtils.USERNAME, userName.trim());
             body.addEncoded(RequestParamsUtils.USER_EMAIL, editRegEmail.getText().toString().trim());
             body.addEncoded(RequestParamsUtils.USER_PASSWORD, editPassword.getText().toString().trim());
+            body.addEncoded(RequestParamsUtils.PAID_TRIAL, String.valueOf(cbPaidTrial.isChecked()));
 
             if (cbMale.isChecked()) {
                 body.addEncoded(RequestParamsUtils.GENDER, "Male");

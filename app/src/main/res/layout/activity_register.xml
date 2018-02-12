@@ -247,6 +247,13 @@
 
             </LinearLayout>
 
+            <CheckBox
+                android:id="@+id/cbPaidTrial"
+                style="@style/txt_666_14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Interested in being contacted about participation in paid trials" />
+
             <com.common.view.CBButtonViewM
                 android:id="@+id/btnRegister"
                 style="@style/LightFlatWaveColorButtonRippleStyle_"

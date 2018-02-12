@@ -89,6 +89,19 @@ public class MakeObserveActivity extends BaseActivity {
     JSONObject obj;
     String userId = null;
 
+    private boolean hasMoodSelected = false;
+    private boolean hasSocialInteractionSelected = false;
+    private boolean hasWorkSchoolSelected = false;
+    private boolean hasFamilyLifeSelected = false;
+    private boolean hasHopelessnessSelected = false;
+    private boolean hasHyperactiveSelected = false;
+    private boolean hasActivitySelected = false;
+    private boolean hasDangerousSelected = false;
+    private boolean hasSubstanceAbuseSelected = false;
+    private boolean hasDelusionalSelected = false;
+    private boolean hasHallucinationsSelected = false;
+    private boolean hasEnergySelected = false;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -118,43 +131,78 @@ public class MakeObserveActivity extends BaseActivity {
     private void init() {
         //setTitleText("Faro10");
 
-//        Utils.initSeekBar(getActivity(), sbMood);
         Utils.initSeekBar(getActivity(), sbSocialInteraction, new CompletionHandler() {
             @Override
             public void onComplete() {
-                // do nothing
+                hasSocialInteractionSelected = true;
             }
         });
-//        Utils.initSeekBar(getActivity(), sbHopelesssness);
-//        Utils.initSeekBar(getActivity(), sbHyperactive);
-//        Utils.initSeekBar(getActivity(), sbEnergy);
-//        Utils.initSeekBar(getActivity(), sbActivity);
         Utils.initSeekBar(getActivity(), sbWorkSchool, new CompletionHandler() {
             @Override
             public void onComplete() {
-                //do nothing
+                hasWorkSchoolSelected = true;
             }
         });
         Utils.initSeekBar(getActivity(), sbFamilyLife, new CompletionHandler() {
             @Override
             public void onComplete() {
-                // do nothing
+                hasFamilyLifeSelected = true;
             }
         });
-//        Utils.initSeekBar(getActivity(), sbDagerous);
-//        Utils.initSeekBar(getActivity(), sbSubstanceAbuse);
-//        Utils.initSeekBar(getActivity(), sbDelusional);
-//        Utils.initSeekBar(getActivity(), sbHallucinations);
-
-        Utils.initSeekBarSidEffects(getActivity(), sbMood, null);
-        Utils.initSeekBarSidEffects(getActivity(), sbHopelesssness, null);
-        Utils.initSeekBarSidEffects(getActivity(), sbHyperactive, null);
-        Utils.initSeekBarSidEffects(getActivity(), sbActivity, null);
-        Utils.initSeekBarSidEffects(getActivity(), sbDagerous, null);
-        Utils.initSeekBarSidEffects(getActivity(), sbSubstanceAbuse, null);
-        Utils.initSeekBarSidEffects(getActivity(), sbDelusional, null);
-        Utils.initSeekBarSidEffects(getActivity(), sbHallucinations, null);
-        Utils.initSeekBarSidEffects(getActivity(), sbEnergy, null);
+        Utils.initSeekBarSidEffects(getActivity(), sbMood, new CompletionHandler() {
+            @Override
+            public void onComplete() {
+                hasMoodSelected = true;
+            }
+        });
+        Utils.initSeekBarSidEffects(getActivity(), sbHopelesssness, new CompletionHandler() {
+            @Override
+            public void onComplete() {
+                hasHopelessnessSelected = true;
+            }
+        });
+        Utils.initSeekBarSidEffects(getActivity(), sbHyperactive, new CompletionHandler() {
+            @Override
+            public void onComplete() {
+                hasHyperactiveSelected = true;
+            }
+        });
+        Utils.initSeekBarSidEffects(getActivity(), sbActivity, new CompletionHandler() {
+            @Override
+            public void onComplete() {
+                hasActivitySelected = true;
+            }
+        });
+        Utils.initSeekBarSidEffects(getActivity(), sbDagerous, new CompletionHandler() {
+            @Override
+            public void onComplete() {
+                hasDangerousSelected = true;
+            }
+        });
+        Utils.initSeekBarSidEffects(getActivity(), sbSubstanceAbuse, new CompletionHandler() {
+            @Override
+            public void onComplete() {
+                hasSubstanceAbuseSelected = true;
+            }
+        });
+        Utils.initSeekBarSidEffects(getActivity(), sbDelusional, new CompletionHandler() {
+            @Override
+            public void onComplete() {
+                hasDelusionalSelected = true;
+            }
+        });
+        Utils.initSeekBarSidEffects(getActivity(), sbHallucinations, new CompletionHandler() {
+            @Override
+            public void onComplete() {
+                hasHallucinationsSelected = true;
+            }
+        });
+        Utils.initSeekBarSidEffects(getActivity(), sbEnergy, new CompletionHandler() {
+            @Override
+            public void onComplete() {
+                hasEnergySelected = true;
+            }
+        });
 
         tvBackErrow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -338,18 +386,41 @@ public class MakeObserveActivity extends BaseActivity {
             body.addEncoded(RequestParamsUtils.OBSERVATION_ID, userId);
             Debug.e("user userId", "" + userId);
 //            body.addEncoded(RequestParamsUtils.OBSERVATION_ID, obj.getString("id"));
-            body.addEncoded(RequestParamsUtils.OBSERVED_AT, Utils.parseTimeUTCtoDefault(tvGetDate.getText().toString(), "MM/dd/yy", "YYYYMMdd"));
-            body.addEncoded(RequestParamsUtils.OBS_FEELING, String.valueOf(sbMood.getProgress()));
-            body.addEncoded(RequestParamsUtils.OBS_SOCIAL_INTERACTION, String.valueOf(sbSocialInteraction.getProgress()));
-            body.addEncoded(RequestParamsUtils.OBS_HYPERACTIVE, String.valueOf(sbHyperactive.getProgress()));
-            body.addEncoded(RequestParamsUtils.OBS_ENERGY, String.valueOf(sbEnergy.getProgress()));
-            body.addEncoded(RequestParamsUtils.OBS_ACTIVITY, String.valueOf(sbActivity.getProgress()));
-            body.addEncoded(RequestParamsUtils.OBS_WORK_LIFE, String.valueOf(sbWorkSchool.getProgress()));
-            body.addEncoded(RequestParamsUtils.OBS_FAMILY_LIFE, String.valueOf(sbFamilyLife.getProgress()));
-            body.addEncoded(RequestParamsUtils.OBS_DANGEROUS_BEHAVIOR, String.valueOf(sbDagerous.getProgress()));
-            body.addEncoded(RequestParamsUtils.OBS_SUBSTANCE_ABUSE, String.valueOf(sbSubstanceAbuse.getProgress()));
-            body.addEncoded(RequestParamsUtils.OBS_DELUSIONAL, String.valueOf(sbDelusional.getProgress()));
-            body.addEncoded(RequestParamsUtils.OBS_HALLUCINATION, String.valueOf(sbHallucinations.getProgress()));
+            body.addEncoded(RequestParamsUtils.OBSERVED_AT, Utils.parseTimeUTCtoDefault(tvGetDate.getText().toString(), "MM/dd/yy", "yyyyMMdd"));
+
+            if (hasMoodSelected)
+                body.addEncoded(RequestParamsUtils.OBS_FEELING, String.valueOf(sbMood.getProgress()));
+
+            if (hasSocialInteractionSelected)
+                body.addEncoded(RequestParamsUtils.OBS_SOCIAL_INTERACTION, String.valueOf(sbSocialInteraction.getProgress()));
+
+            if (hasHyperactiveSelected)
+                body.addEncoded(RequestParamsUtils.OBS_HYPERACTIVE, String.valueOf(sbHyperactive.getProgress()));
+
+            if (hasEnergySelected)
+                body.addEncoded(RequestParamsUtils.OBS_ENERGY, String.valueOf(sbEnergy.getProgress()));
+
+            if (hasActivitySelected)
+                body.addEncoded(RequestParamsUtils.OBS_ACTIVITY, String.valueOf(sbActivity.getProgress()));
+
+            if (hasWorkSchoolSelected)
+                body.addEncoded(RequestParamsUtils.OBS_WORK_LIFE, String.valueOf(sbWorkSchool.getProgress()));
+
+            if (hasFamilyLifeSelected)
+                body.addEncoded(RequestParamsUtils.OBS_FAMILY_LIFE, String.valueOf(sbFamilyLife.getProgress()));
+
+            if (hasDangerousSelected)
+                body.addEncoded(RequestParamsUtils.OBS_DANGEROUS_BEHAVIOR, String.valueOf(sbDagerous.getProgress()));
+
+            if (hasSubstanceAbuseSelected)
+                body.addEncoded(RequestParamsUtils.OBS_SUBSTANCE_ABUSE, String.valueOf(sbSubstanceAbuse.getProgress()));
+
+            if (hasDelusionalSelected)
+                body.addEncoded(RequestParamsUtils.OBS_DELUSIONAL, String.valueOf(sbDelusional.getProgress()));
+
+            if (hasHallucinationsSelected)
+                body.addEncoded(RequestParamsUtils.OBS_HALLUCINATION, String.valueOf(sbHallucinations.getProgress()));
+
             body.addEncoded(RequestParamsUtils.OBS_JOURNAL, editJournalEntry.getText().toString().trim());
 
             for (int i = 0; i < body.build().size(); i++) {

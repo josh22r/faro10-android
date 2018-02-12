@@ -25,6 +25,7 @@ public class RequestParamsUtils {
     public static final String USER_EMAIL = "user[email]";
     public static final String USER_PASSWORD = "user[password]";
     public static final String GENDER = "user[gender]";
+    public static final String PAID_TRIAL = "user[paidTrial]";
     public static final String FORGOT_PASSWORD = "email";
 
     public static final String RACE = "user[race]";
@@ -149,7 +150,7 @@ public class RequestParamsUtils {
     public static FormBody.Builder newRequestFormBody(Context c) {
         FormBody.Builder builder = new FormBody.Builder();
         builder.addEncoded(TOKEN, Utils.getPref(c, RequestParamsUtils.TOKEN, ""));
-        builder.addEncoded(EMAIL, Utils.getPref(c, RequestParamsUtils.EMAIL, ""));
+        builder.add(EMAIL, Utils.getPref(c, RequestParamsUtils.EMAIL, ""));
 
         return builder;
     }

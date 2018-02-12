@@ -213,8 +213,8 @@ public class LoginActivity extends BaseActivity {
         try {
             showDialog("");
             FormBody.Builder body = RequestParamsUtils.newRequestFormBody(getActivity());
-            body.addEncoded(RequestParamsUtils.EMAIL, editLoginEmail.getText().toString());
-            body.addEncoded(RequestParamsUtils.PASSWORD, editLoginPass.getText().toString());
+            body.add(RequestParamsUtils.EMAIL, editLoginEmail.getText().toString());
+            body.add(RequestParamsUtils.PASSWORD, editLoginPass.getText().toString());
 
             Call call = HttpClient.newRequestPost(getActivity(), body.build(), URLs.LOGIN());
             call.enqueue(new GetVersionDataHandler(getActivity()));

@@ -271,9 +271,9 @@ public class RegisterActivity extends BaseActivity {
 
             FormBody.Builder body = RequestParamsUtils.newRequestFormBody(getActivity());
             body.addEncoded(RequestParamsUtils.USERNAME, userName.trim());
-            body.addEncoded(RequestParamsUtils.USER_EMAIL, editRegEmail.getText().toString().trim());
+            body.add(RequestParamsUtils.USER_EMAIL, editRegEmail.getText().toString().trim());
             body.addEncoded(RequestParamsUtils.USER_PASSWORD, editPassword.getText().toString().trim());
-            body.addEncoded(RequestParamsUtils.PAID_TRIAL, String.valueOf(cbPaidTrial.isChecked()));
+            body.addEncoded(RequestParamsUtils.PAID_TRIAL, cbPaidTrial.isChecked() ? "1" : "0");
 
             if (cbMale.isChecked()) {
                 body.addEncoded(RequestParamsUtils.GENDER, "Male");

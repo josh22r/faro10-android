@@ -25,7 +25,7 @@ public class RequestParamsUtils {
     public static final String USER_EMAIL = "user[email]";
     public static final String USER_PASSWORD = "user[password]";
     public static final String GENDER = "user[gender]";
-    public static final String PAID_TRIAL = "user[paidTrial]";
+    public static final String PAID_TRIAL = "user[trial_interested]";
     public static final String FORGOT_PASSWORD = "email";
 
     public static final String RACE = "user[race]";

@@ -350,6 +350,21 @@
                                 android:textCursorDrawable="@null" />
                         </android.support.design.widget.TextInputLayout>
 
+                        <android.support.design.widget.TextInputLayout
+                            style="@style/TextAppearence.App.TextInputLayout_"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            app:hintAnimationEnabled="true"
+                            app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout_">
+
+                            <CheckBox
+                                android:id="@+id/cbPaidTrials"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Interested in being contacted about participation in paid trials" />
+                        </android.support.design.widget.TextInputLayout>
+
                     </LinearLayout>
 
                 </LinearLayout>

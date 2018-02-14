@@ -5,6 +5,7 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -89,6 +90,8 @@ public class MyProfileActivity extends BaseActivity {
     EditText editBirthDate;
     @BindView(R.id.editTimeZone)
     EditText editTimeZone;
+    @BindView(R.id.cbPaidTrials)
+    CheckBox cbPaidTrails;
 
     @BindView(R.id.pbEntries)
     ProgressBar pbEntries;
@@ -497,7 +500,7 @@ public class MyProfileActivity extends BaseActivity {
         editZipCode.setText(Utils.nullSafe("" + res.user.zipCode));
         editTimeZone.setText(Utils.nullSafe("" + res.user.time_zone));
         editBirthDate.setText(Utils.parseTime("" + res.user.dob, "yyyy-MM-dd", "MM/dd/yy"));
-
+        cbPaidTrails.setChecked(res.user.trialInterested);
 
     }
 
@@ -513,6 +516,7 @@ public class MyProfileActivity extends BaseActivity {
         editNationality.setEnabled(b);
         editZipCode.setEnabled(b);
         editTimeZone.setEnabled(b);
+        cbPaidTrails.setEnabled(b);
 
     }
 
@@ -555,7 +559,7 @@ public class MyProfileActivity extends BaseActivity {
             body.addEncoded(RequestParamsUtils.BIRTHDATE, Utils.parseTime("" + editBirthDate.getText(), "MM/dd/yy", "yyyy-MM-dd"));
             body.addEncoded(RequestParamsUtils.ZIPCODE, editZipCode.getText().toString().trim());
             body.addEncoded(RequestParamsUtils.USER_TIMEZONE, editTimeZone.getText().toString().trim());
-
+            body.addEncoded(RequestParamsUtils.PAID_TRIAL, cbPaidTrails.isChecked() ? "1" : "0");
 
             Debug.e("editProfileData", "" + body);
             Call call = HttpClient.newRequestPut(getActivity(), body.build(), URLs.GET_USER());

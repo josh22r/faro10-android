@@ -46,6 +46,8 @@
     <string name="err_dosage">Enter Dosage</string>
     <string name="err_select_date">Select Date</string>
 
+    <string name="err_signature">Signature Required</string>
+
     <string name="err_relationship">Enter Relationship</string>
     <string name="err_email">Enter email address</string>
     <string name="err_valid_email">Please enter valid email address</string>

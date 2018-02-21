@@ -2,6 +2,7 @@ package com.kartum;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -140,6 +141,8 @@ public class MyTeamActivity extends BaseActivity {
     CheckBox cbGuardian;
 
     int count = 0;
+
+    static final int APPROVE_CLINICIAN_REQUEST = 1;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -633,7 +636,15 @@ public class MyTeamActivity extends BaseActivity {
             public boolean onMenuItemClick(MenuItem item) {
 
                 if (item.getItemId() == 0) {
-                    approveClinicData(data.clinicianId);
+                    Intent intent = new Intent(getApplicationContext(), ApproveClinicianActivity.class);
+
+                    intent.putExtra("ID", data.clinicianId);
+                    intent.putExtra("Name", data.userName);
+                    intent.putExtra("Clinic_Name", data.clinicName);
+
+                    startActivityForResult(intent, APPROVE_CLINICIAN_REQUEST);
+
+//                    approveClinicData(data.clinicianId);
                 }
                 if (item.getItemId() == 1) {
                     clinicianMsgDeletePopup(data.clinicianId);
@@ -643,6 +654,19 @@ public class MyTeamActivity extends BaseActivity {
             }
         });
         popup.show();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == APPROVE_CLINICIAN_REQUEST) {
+            if (resultCode == RESULT_OK) {
+
+                Integer clinicianID = data.getIntExtra("ID", -1);
+                if (clinicianID != -1) {
+                    approveClinicData(clinicianID);
+                }
+            }
+        }
     }
 
     Dialog mDialog;

@@ -3,6 +3,7 @@ package com.kartum;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentSender;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -62,7 +63,6 @@ public class InviteActivity extends BaseActivity {
         init();
     }
 
-
     private void init() {
 
         initFillData();
@@ -79,55 +79,75 @@ public class InviteActivity extends BaseActivity {
 
         btnInvites.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
+//                Intent sendIntent = new Intent();
+//                sendIntent.setAction(Intent.ACTION_SEND);
+//                sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
+//                sendIntent.setType("text/plain");
+//                startActivity(sendIntent);
 
-                if (validate()) {
-                    List<EmailData> data = mAdapter.getAll();
+                Intent textShareIntent = new Intent(Intent.ACTION_SEND);
+                textShareIntent.putExtra(Intent.EXTRA_TEXT, "Checkout Faro10 - download now");
+                textShareIntent.putExtra(Intent.EXTRA_SUBJECT, "Faro10 Invitation");
+                textShareIntent.setType("text/plain");
 
-                    String[] emailArray = new String[data.size()];
+                if (textShareIntent.resolveActivity(getPackageManager()) != null)
+                    startActivity(Intent.createChooser(textShareIntent, "Share"));
 
-                    for (int i = 0; i < data.size(); i++) {
-                        emailArray[i] = data.get(i).mEmail;
-                    }
-
-                    String str = new Gson().toJson(data);
-                    Debug.e("mail", "" + emailArray);
-                    Debug.e("user Email", "" + Utils.getPref(getActivity(), RequestParamsUtils.EMAIL, ""));
-
-                    String htmlString = "<div class=\"adn ads\"> <div class=\"gs\"><div id=':o5' class='ii gt adP adO'> <div id=':o6' class='a3s aXjCH m156d9b3648d7a502'><div><p>Hello,</p><p>You have been invited by " + Utils.getPref(getActivity(), RequestParamsUtils.EMAIL, "") + " to assist in their treatment. As a Clinician within Faro10, you will have access to health data and realtime insights into their well-being.<br /><br />Some of the capabilities include:</p><ul><li>Patient List with quick status of health in real-time</li>\n" +
-                            "                  <li>Dynamic Charts, Trends and Graphs of Patient wellness in real-time</li>\n" +
-                            "                  <li>Real-time status of Patient symptoms and adverse events</li>\n" +
-                            "                  <li>Observer Journals and notes for each Patient</li>\n" +
-                            "                  <li>Track Patient prescriptions and medication success</li>\n" +
-                            "                  <li>Digitally share Patient notes with other Clinicians</li>\n" +
-                            "                  <li>1-way Message Center for quick messages to Patients</li>\n" +
-                            "                  <li>Digitally signed consent and release forms</li>\n" +
-                            "                  <li>Evidence-based Clinic success metrics</li>\n" +
-                            "                  </ul>\n" +
-                            "                  <p>Once you have created an account, you can log in and choose the 'Add Patient' option and use <a href='mailto:" + Utils.getPref(getActivity(), RequestParamsUtils.EMAIL, "") + "' target='_blank'>" + Utils.getPref(getActivity(), RequestParamsUtils.EMAIL, "") + "</a> to add " + Utils.getPref(getActivity(), RequestParamsUtils.EMAIL, "") + " to your list of patients.</p>\n" +
-                            "                  <p>Follow this link to our registration page.</p>\n" +
-                            "                  <a href='https://shrouded-hamlet-2906.herokuapp.com/Register Clinician' target='_blank' data-saferedirecturl='https://shrouded-hamlet-2906.herokuapp.com/Register Clinician'>Register</a><p>Thank you for your help!</p><h1>Faro10</h1>\n" +
-                            "                  <div class='yj6qo'>&nbsp;</div>\n" +
-                            "                  </div>\n" +
-                            "                  </div>\n" +
-                            "                  </div>\n" +
-                            "                  <div class='hi'>&nbsp;</div>\n" +
-                            "                  </div>\n" +
-                            "                  <div class='ajx'>&nbsp;</div>\n" +
-                            "                  </div>\n" +
-                            "                  <div class='gA gt acV'>&nbsp;</div>\n" +
-                            "                  <p>&nbsp;</p>";
-
-                    SendEmailASyncTask task = new SendEmailASyncTask(InviteActivity.this,
-                            "dimple.techark@gmail.com", emailArray, "noreply@faro10.com", "You have received an invitation from one of your Patients to join Faro10", "",
-                            selectedImageURI,
-                            htmlString);
-                    task.execute();
-
-//                    SendEmailASyncTask tasks = new SendEmailASyncTask()
-                }
             }
         });
+
+//        btnInvites.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                if (validate()) {
+//                    List<EmailData> data = mAdapter.getAll();
+//
+//                    String[] emailArray = new String[data.size()];
+//
+//                    for (int i = 0; i < data.size(); i++) {
+//                        emailArray[i] = data.get(i).mEmail;
+//                    }
+//
+//                    String str = new Gson().toJson(data);
+//                    Debug.e("mail", "" + emailArray);
+//                    Debug.e("user Email", "" + Utils.getPref(getActivity(), RequestParamsUtils.EMAIL, ""));
+//
+//                    String htmlString = "<div class=\"adn ads\"> <div class=\"gs\"><div id=':o5' class='ii gt adP adO'> <div id=':o6' class='a3s aXjCH m156d9b3648d7a502'><div><p>Hello,</p><p>You have been invited by " + Utils.getPref(getActivity(), RequestParamsUtils.EMAIL, "") + " to assist in their treatment. As a Clinician within Faro10, you will have access to health data and realtime insights into their well-being.<br /><br />Some of the capabilities include:</p><ul><li>Patient List with quick status of health in real-time</li>\n" +
+//                            "                  <li>Dynamic Charts, Trends and Graphs of Patient wellness in real-time</li>\n" +
+//                            "                  <li>Real-time status of Patient symptoms and adverse events</li>\n" +
+//                            "                  <li>Observer Journals and notes for each Patient</li>\n" +
+//                            "                  <li>Track Patient prescriptions and medication success</li>\n" +
+//                            "                  <li>Digitally share Patient notes with other Clinicians</li>\n" +
+//                            "                  <li>1-way Message Center for quick messages to Patients</li>\n" +
+//                            "                  <li>Digitally signed consent and release forms</li>\n" +
+//                            "                  <li>Evidence-based Clinic success metrics</li>\n" +
+//                            "                  </ul>\n" +
+//                            "                  <p>Once you have created an account, you can log in and choose the 'Add Patient' option and use <a href='mailto:" + Utils.getPref(getActivity(), RequestParamsUtils.EMAIL, "") + "' target='_blank'>" + Utils.getPref(getActivity(), RequestParamsUtils.EMAIL, "") + "</a> to add " + Utils.getPref(getActivity(), RequestParamsUtils.EMAIL, "") + " to your list of patients.</p>\n" +
+//                            "                  <p>Follow this link to our registration page.</p>\n" +
+//                            "                  <a href='https://shrouded-hamlet-2906.herokuapp.com/Register Clinician' target='_blank' data-saferedirecturl='https://shrouded-hamlet-2906.herokuapp.com/Register Clinician'>Register</a><p>Thank you for your help!</p><h1>Faro10</h1>\n" +
+//                            "                  <div class='yj6qo'>&nbsp;</div>\n" +
+//                            "                  </div>\n" +
+//                            "                  </div>\n" +
+//                            "                  </div>\n" +
+//                            "                  <div class='hi'>&nbsp;</div>\n" +
+//                            "                  </div>\n" +
+//                            "                  <div class='ajx'>&nbsp;</div>\n" +
+//                            "                  </div>\n" +
+//                            "                  <div class='gA gt acV'>&nbsp;</div>\n" +
+//                            "                  <p>&nbsp;</p>";
+//
+//                    SendEmailASyncTask task = new SendEmailASyncTask(InviteActivity.this,
+//                            "dimple.techark@gmail.com", emailArray, "noreply@faro10.com", "You have received an invitation from one of your Patients to join Faro10", "",
+//                            selectedImageURI,
+//                            htmlString);
+//                    task.execute();
+//
+////                    SendEmailASyncTask tasks = new SendEmailASyncTask()
+//                }
+//            }
+//        });
     }
 
     private void initFillData() {

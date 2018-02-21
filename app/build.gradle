@@ -52,6 +52,7 @@ android {
 }
 
 dependencies {
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile('com.mikepenz:materialdrawer:5.8.0@aar') {
@@ -90,6 +91,7 @@ dependencies {
     compile 'jp.co.recruit_mp:LightCalendarView:1.0.1'
     compile 'com.bignerdranch.android:expandablerecyclerview:3.0.0-RC1'
     compile 'com.squareup.okhttp3:okhttp:3.9.0'
+    compile 'com.github.gcacace:signature-pad:1.2.1'
 
     compile 'com.github.danysantiago:sendgrid-android:1'
 //    implementation ('com.github.danysantiago:sendgrid-android:1') {

@@ -183,13 +183,14 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|stateAlwaysHidden|adjustResize" />
 
-
         <receiver android:name=".receiver.ReminderBroadcastReceiver" />
         <receiver android:name=".receiver.StartUpBootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+
+        <activity android:name=".ApproveClinicianActivity"></activity>
     </application>
 
 </manifest>

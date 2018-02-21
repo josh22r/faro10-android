@@ -65,7 +65,7 @@ public class    ProfileRes {
         public String clinicianId;
         @SerializedName("trial_interested")
         @Expose
-        public Boolean trialInterested;
+        public boolean trialInterested;
 
     }
 }

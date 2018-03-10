@@ -1,10 +1,12 @@
 package com.kartum;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -16,6 +18,7 @@ import com.google.gson.reflect.TypeToken;
 import com.kartum.objects.DashboardStatsRes;
 import com.kartum.objects.Spinner;
 import com.kartum.objects.TimeZOne;
+import com.kartum.utils.AppReviewManager;
 import com.kartum.utils.AsyncResponseHandlerOk;
 import com.kartum.utils.Constant;
 import com.kartum.utils.Debug;
@@ -86,7 +89,10 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, MoodVitalsActivity.class);
-                startActivity(intent);
+
+                // this activity expects a result
+                // result determines whether or not to show review prompt
+                startActivityForResult(intent, 1);
             }
         });
 
@@ -241,6 +247,28 @@ public class MainActivity extends BaseActivity {
 //        tvObserveDate.setText(Utils.parseTimeUTCtoDefault(res.lastEntry, "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", "dd/MM/yy  hh:mm a"));
 
         super.onResume();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK) {
+
+            boolean shouldTryPromptingForReview = data.getBooleanExtra("shouldTryPromptingForReview", false);
+            if (shouldTryPromptingForReview) {
+                AppReviewManager.getInstance()
+                        .promptForReviewAfterSavingMoodEntry(getActivity(), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent = new Intent(Intent.ACTION_VIEW);
+                                intent.setData(Uri.parse("market://details?id=com.faro10"));
+
+                                Utils.setPref(getActivity(), "has_proceeded_to_app_store", true);
+
+                                startActivity(intent);
+                            }
+                        });
+            }
+        }
     }
 
     @Override

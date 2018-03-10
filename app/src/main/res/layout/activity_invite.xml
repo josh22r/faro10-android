@@ -65,16 +65,18 @@
 
             <com.common.view.CBTextView
                 style="@style/txt_theme_dark_18"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Invite People to Join" />
+                android:text="Invite People to Join"
+                android:textAlignment="center" />
 
             <com.common.view.CTextView
                 style="@style/txt_666_14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="Invite people to Faro10 as an observer or to use themselves. Enter the person's email address in the boxes below." />
+                android:text="Invite people to Faro10 as an observer or to use themselves."
+                android:paddingTop="20dp"/>
 
 
             <LinearLayout
@@ -82,22 +84,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp">
 
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/mRecyclerView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:nestedScrollingEnabled="false" />
-
             </LinearLayout>
-
-            <com.common.view.CTextView
-                android:id="@+id/tvAddEmail"
-                style="@style/txt_666_14"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="+ Add another email address"
-                android:textAlignment="center" />
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
@@ -112,7 +99,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="5dp"
         android:background="@drawable/btn_bg_"
-        android:text="Send Invites"
+        android:text="Select Contact"
         android:textAllCaps="false"
         android:textColor="#FFFFFF" />
 

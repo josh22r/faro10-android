@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kartum.objects.Spinner;
+import com.kartum.utils.AppReviewManager;
 import com.kartum.utils.AsyncResponseHandlerOk;
 import com.kartum.utils.CompletionHandler;
 import com.kartum.utils.Debug;
@@ -603,7 +604,6 @@ public class MoodVitalsActivity extends BaseActivity {
             Debug.e("setMoodEntryData", "" + body);
             Call call = HttpClient.newRequestPost(getActivity(), body.build(), URLs.ADD_ENTRY());
             call.enqueue(new GetVersionDataHandler(getActivity()));
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -637,6 +637,11 @@ public class MoodVitalsActivity extends BaseActivity {
                 Debug.e("", "setMoodEntryData# " + response);
                 if (response != null && response.length() > 0) {
                     showToast("success", Toast.LENGTH_LONG);
+
+                    Intent returnIntent = new Intent();
+                    returnIntent.putExtra("shouldTryPromptingForReview", true); //This is just an example extra.
+                    setResult(RESULT_OK, returnIntent); //This is the important part.
+
                     finish();
                 }
             } catch (Exception e) {

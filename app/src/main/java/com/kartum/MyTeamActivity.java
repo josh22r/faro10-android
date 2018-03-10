@@ -663,7 +663,8 @@ public class MyTeamActivity extends BaseActivity {
 
                 Integer clinicianID = data.getIntExtra("ID", -1);
                 if (clinicianID != -1) {
-                    approveClinicData(clinicianID);
+                    String base64signature = data.getStringExtra("Signature");
+                    approveClinicData(clinicianID, base64signature);
                 }
             }
         }
@@ -1081,7 +1082,7 @@ public class MyTeamActivity extends BaseActivity {
         }
     }
 
-    public void approveClinicData(int id) {
+    public void approveClinicData(int id, String encodedSignature) {
         try {
             showDialog("");
 //            RequestParams params = RequestParamsUtils.newRequestParams(getActivity());
@@ -1090,6 +1091,8 @@ public class MyTeamActivity extends BaseActivity {
 //            client.put(URLs.APPROVE_CLINICIAN() + id + "/approve", params, new GetVersionData1(getActivity()));
 
             FormBody.Builder body = RequestParamsUtils.newRequestFormBody(getActivity());
+            body.add("params[consent_signature]", encodedSignature);
+
             Call call = HttpClient.newRequestPut(getActivity(), body.build(), URLs.APPROVE_CLINICIAN() + id + "/approve");
             call.enqueue(new GetVersionData1(getActivity()));
 

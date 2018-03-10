@@ -34,15 +34,10 @@ public class InviteActivity extends BaseActivity {
 
     //    @BindView(R.id.editEmail)
 //    EditText editEmail;
-    @BindView(R.id.tvAddEmail)
-    TextView tvAddEmail;
     @BindView(R.id.btnInvites)
     Button btnInvites;
 
-    @BindView(R.id.mRecyclerView)
-    RecyclerView mRecyclerView;
     RecyclerView.LayoutManager layoutManager;
-    public EmailListAdapter mAdapter;
 
     private static final String SENDGRID_USERNAME = "jroberto@neptunescloud.com";
     private static final String SENDGRID_PASSWORD = "P@55word";
@@ -66,16 +61,6 @@ public class InviteActivity extends BaseActivity {
     private void init() {
 
         initFillData();
-        tvAddEmail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (validate()) {
-                    mAdapter.add();
-                }
-
-            }
-        });
-        mAdapter.add();
 
         btnInvites.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,8 +72,8 @@ public class InviteActivity extends BaseActivity {
 //                startActivity(sendIntent);
 
                 Intent textShareIntent = new Intent(Intent.ACTION_SEND);
-                textShareIntent.putExtra(Intent.EXTRA_TEXT, "Checkout Faro10 - download now");
-                textShareIntent.putExtra(Intent.EXTRA_SUBJECT, "Faro10 Invitation");
+                textShareIntent.putExtra(Intent.EXTRA_TEXT, "Check out the Faro10 App.\r\n \r\nYou can visit their website at www.faro10.com or download directly:\r\n\r\niOS:\r\nAppstore.com/Faro10\r\n\r\nAndroid:\r\nplay.google.com/store/apps/details?id=com.faro10");
+                textShareIntent.putExtra(Intent.EXTRA_SUBJECT, "Faro10");
                 textShareIntent.setType("text/plain");
 
                 if (textShareIntent.resolveActivity(getPackageManager()) != null)
@@ -153,36 +138,10 @@ public class InviteActivity extends BaseActivity {
     private void initFillData() {
 
         layoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(layoutManager);
-        mAdapter = new EmailListAdapter(this);
-        mRecyclerView.setAdapter(mAdapter);
+//        mRecyclerView.setLayoutManager(layoutManager);
+//        mAdapter = new EmailListAdapter(this);
+//        mRecyclerView.setAdapter(mAdapter);
 //        data = new ArrayList<>();
-    }
-
-    private boolean validate() {
-        List<EmailData> data = mAdapter.getAll();
-        Debug.e("array", new Gson().toJson(data));
-
-        for (int i = 0; i < data.size(); i++) {
-
-            if (data.get(i).mEmail == null || data.get(i).mEmail.isEmpty()) {
-                showToast(getString(R.string.err_email), Toast.LENGTH_SHORT);
-                return false;
-            }
-            if (!Patterns.EMAIL_ADDRESS.matcher(data.get(i).mEmail).matches()) {
-                showToast(getString(R.string.err_email_invalid), Toast.LENGTH_SHORT);
-                return false;
-            }
-
-        }
-//        for (EmailData a : mAdapter.getAll()) {
-//            if (StringUtils.isEmpty(a.mEmail)) {
-//                showToast(getString(R.string.err_email), Toast.LENGTH_SHORT);
-//                return false;
-//            }
-//
-//        }
-        return true;
     }
 
     @Override

@@ -3,6 +3,7 @@ package com.kartum;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -90,9 +91,11 @@ public class ApproveClinicianActivity extends BaseActivity {
             signature.compress(Bitmap.CompressFormat.PNG, 100, stream);
             byte[] byteArray = stream.toByteArray();
 
+            String encoded = "data:image/png;base64," + Base64.encodeToString(byteArray, Base64.DEFAULT);
+
             Intent data = new Intent();
             data.putExtra("ID", clinicianID);
-            data.putExtra("Signature", byteArray);
+            data.putExtra("Signature", encoded);
 
             setResult(RESULT_OK, data);
             finish();

@@ -1,13 +1,17 @@
 package com.kartum;
 
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -69,6 +73,8 @@ public class MainActivity extends BaseActivity {
     private void init() {
         //setTitleText("Faro10");
 
+
+
         // check whether default alarms were set after login
         Boolean appHasSetDefaultAlarms = Utils.getPref(getActivity(), "Alarms.AppHasSetDefaultAlarms", FALSE);
         if (!appHasSetDefaultAlarms) {
@@ -83,6 +89,9 @@ public class MainActivity extends BaseActivity {
 
             // flip flag so this does't occur again
             Utils.setPref(getActivity(), "Alarms.AppHasSetDefaultAlarms", TRUE);
+        } else {
+            // ensure all alarms are set
+            Utils.restartReminders(getActivity());
         }
 
         llMood.setOnClickListener(new View.OnClickListener() {

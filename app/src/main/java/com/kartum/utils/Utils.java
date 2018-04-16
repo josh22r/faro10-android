@@ -70,9 +70,16 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.temporal.TemporalAdjuster;
+import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -86,6 +93,15 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
 import me.tankery.lib.circularseekbar.CircularSeekBar;
+
+import static java.time.DayOfWeek.SUNDAY;
+import static java.util.Calendar.DATE;
+import static java.util.Calendar.DAY_OF_YEAR;
+import static java.util.Calendar.MONTH;
+import static java.util.Calendar.SATURDAY;
+import static java.util.Calendar.YEAR;
+import static java.util.Collections.emptyList;
+import static java.util.Collections.sort;
 
 public class Utils {
 
@@ -1423,9 +1439,96 @@ public class Utils {
         }
 
 //        List<SettingActivity.ReminderData> reminderForDay = getReminderForDay(reminderDataList);
-        temp.addAll(getReminderForDay(reminderDataList));
+//        temp.addAll(getReminderForDay(reminderDataList));
+        temp.addAll(getWhenNextRemindersShouldBeScheduled(reminderDataList));
 
         return temp;
+    }
+
+    private static List<SettingActivity.ReminderData> getWhenNextRemindersShouldBeScheduled(List<SettingActivity.ReminderData> reminderDataList) {
+        List<SettingActivity.ReminderData> temp = new ArrayList<>();
+
+        for (SettingActivity.ReminderData reminderData : reminderDataList) {
+            // skip if it's not active
+            if (!reminderData.isOn){
+                continue;
+            }
+
+            if (reminderData.sunday.equalsIgnoreCase("1")) {
+                temp.add(getNextTimeReminderShouldOccurOn(Calendar.SUNDAY, reminderData));
+            }
+            if (reminderData.monday.equalsIgnoreCase("1")) {
+                temp.add(getNextTimeReminderShouldOccurOn(Calendar.MONDAY, reminderData));
+            }
+            if (reminderData.tuesday.equalsIgnoreCase("1")) {
+                temp.add(getNextTimeReminderShouldOccurOn(Calendar.TUESDAY, reminderData));
+            }
+            if (reminderData.wednesday.equalsIgnoreCase("1")) {
+                temp.add(getNextTimeReminderShouldOccurOn(Calendar.WEDNESDAY, reminderData));
+            }
+            if (reminderData.thursday.equalsIgnoreCase("1")) {
+                temp.add(getNextTimeReminderShouldOccurOn(Calendar.THURSDAY, reminderData));
+            }
+            if (reminderData.friday.equalsIgnoreCase("1")) {
+                temp.add(getNextTimeReminderShouldOccurOn(Calendar.FRIDAY, reminderData));
+            }
+            if (reminderData.saturday.equalsIgnoreCase("1")) {
+                temp.add(getNextTimeReminderShouldOccurOn(Calendar.SATURDAY, reminderData));
+            }
+        }
+
+        if (temp.size() == 0)
+            return emptyList();
+
+        // sort to find next closest
+        sort(temp, new Comparator<SettingActivity.ReminderData>() {
+            @Override
+            public int compare(SettingActivity.ReminderData o1, SettingActivity.ReminderData o2) {
+                return new Long(o1.timestamp).compareTo(new Long(o2.timestamp));
+            }
+        });
+
+        // return list of 1
+        return temp.subList(0, 1);
+    }
+
+    private static SettingActivity.ReminderData getNextTimeReminderShouldOccurOn(int dayOfWeek, SettingActivity.ReminderData reminderData) {
+
+        // copy into new object
+        SettingActivity.ReminderData reminderOnDayOfWeek = new SettingActivity.ReminderData();
+        reminderOnDayOfWeek.sunday = reminderData.sunday;
+        reminderOnDayOfWeek.monday = reminderData.monday;
+        reminderOnDayOfWeek.tuesday = reminderData.tuesday;
+        reminderOnDayOfWeek.wednesday = reminderData.wednesday;
+        reminderOnDayOfWeek.thursday= reminderData.thursday;
+        reminderOnDayOfWeek.friday = reminderData.friday;
+        reminderOnDayOfWeek.saturday = reminderData.saturday;
+        reminderOnDayOfWeek.isOn = reminderData.isOn;
+        reminderOnDayOfWeek.lable = reminderData.lable;
+        reminderOnDayOfWeek.reqCode = reminderData.reqCode;
+        reminderOnDayOfWeek.time = reminderData.time;
+        reminderOnDayOfWeek.timeMin = reminderData.timeMin;
+        reminderOnDayOfWeek.timestamp = reminderData.timestamp;
+
+        // find next occurrence of date
+        int daysBetween = Calendar.SATURDAY - dayOfWeek;
+
+
+        Calendar reminderCal = Calendar.getInstance();
+        reminderCal.add(DAY_OF_YEAR, daysBetween);
+        reminderCal.set(Calendar.MINUTE, 0);
+        reminderCal.set(Calendar.HOUR_OF_DAY, 0);
+        reminderCal.set(Calendar.SECOND, 0);
+        reminderCal.set(Calendar.MILLISECOND, 0);
+        reminderCal.add(Calendar.MINUTE, reminderData.timeMin);
+
+        // if day is today and alarm is passed, schedule it for next week
+        if (reminderCal.getTimeInMillis() < Calendar.getInstance().getTimeInMillis()) {
+            reminderCal.add(Calendar.DAY_OF_YEAR, 7);
+        }
+
+        reminderOnDayOfWeek.timestamp = reminderCal.getTimeInMillis();
+        return reminderOnDayOfWeek;
     }
 
     private static List<SettingActivity.ReminderData> getReminderForDay(List<SettingActivity.ReminderData> reminderDataList) {

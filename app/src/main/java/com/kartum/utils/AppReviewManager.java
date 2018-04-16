@@ -27,6 +27,7 @@ public class AppReviewManager {
             return;
 
         moodEntryCount++;
+        Utils.setPref(context, "mood_entry_count", moodEntryCount);
 
         boolean shouldPromptForReview =
                     moodEntryCount == 4 ||

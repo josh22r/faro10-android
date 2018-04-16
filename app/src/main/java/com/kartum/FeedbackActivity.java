@@ -29,8 +29,8 @@ public class FeedbackActivity extends BaseActivity {
     @BindView(R.id.btnFeedback)
     Button btnFeedback;
 
-    private static final String SENDGRID_USERNAME = "jroberto@neptunescloud.com";
-    private static final String SENDGRID_PASSWORD = "P@55word";
+    private static final String SENDGRID_USERNAME = "josh@faro10.com";
+    private static final String SENDGRID_PASSWORD = "P@55word1";
     private static final int ADD_ATTACHMENT = 1;
 
     private Uri selectedImageURI;
@@ -59,8 +59,8 @@ public class FeedbackActivity extends BaseActivity {
                 editFeedback.setText(input);
 
                 if (input.length() > 0) {
-                    SendEmailASyncTask task = new SendEmailASyncTask(FeedbackActivity.this, "JRoberto@apptio.com",
-                            Utils.getPref(getActivity(), RequestParamsUtils.EMAIL, ""), "faro10 feedback",
+                    SendEmailASyncTask task = new SendEmailASyncTask(FeedbackActivity.this, "josh@faro10.com",
+                            Utils.getPref(getActivity(), RequestParamsUtils.EMAIL, ""), "Feedback from Faro10 Mobile App User",
                             editFeedback.getText().toString(),
                             selectedImageURI,
                             attachmentName);

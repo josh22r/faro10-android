@@ -1180,12 +1180,12 @@ public class Utils {
                 if (progresss <= 3) {
                     TextDrawable drawable1 = Utils.initDynamicTextDrawable(c, c.getResources().getColor(R.color.theme_blue), String.valueOf(progresss));
                     seekBar.setThumb(drawable1);
-                    seekBar.getProgressDrawable().setColorFilter(c.getResources().getColor(R.color.theme_blue), PorterDuff.Mode.SRC_IN);
+                    seekBar.getProgressDrawable().setColorFilter(c.getResources().getColor(R.color.theme_green), PorterDuff.Mode.SRC_IN);
 
                 } else if (progresss > 3 && progresss <= 7) {
                     TextDrawable drawable1 = Utils.initDynamicTextDrawable(c, c.getResources().getColor(R.color.theme_green), String.valueOf(progresss));
                     seekBar.setThumb(drawable1);
-                    seekBar.getProgressDrawable().setColorFilter(c.getResources().getColor(R.color.theme_green), PorterDuff.Mode.SRC_IN);
+                    seekBar.getProgressDrawable().setColorFilter(c.getResources().getColor(R.color.theme_orange), PorterDuff.Mode.SRC_IN);
 
 
                 } else {
